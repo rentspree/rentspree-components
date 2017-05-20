@@ -1,7 +1,7 @@
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
-  entry: './src/components/react-validation/form-validator.js',
+  entry: './src/index.js',
   output: {
     filename: './dist/index.js',
     sourceMapFilename: './dist/index.js.map',
