@@ -7,7 +7,8 @@ import {
   InputNumber,
   TextArea,
   Tags,
-  Select
+  Select,
+Footer
 } from '../src/index'
 
 storiesOf('Input', module)
@@ -23,10 +24,12 @@ storiesOf('Input', module)
   .add('Number', () => (
     <InputNumber />
   ))
+  .add('Footer', () => (
+    <Footer />
+  ))
 
 storiesOf('Textarea', module)
   .add('Text', () => (
-
     <TextArea />
   ))
   .add('Tags', () => (
