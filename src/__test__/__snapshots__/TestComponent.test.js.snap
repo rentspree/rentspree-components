@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test component showed 1`] = `
+<div
+  className="testClass"
+>
+  Hello world!! This is Foo Bar.
+</div>
+`;

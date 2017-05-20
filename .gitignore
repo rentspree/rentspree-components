@@ -1,0 +1,13 @@
+# Webstorm
+.idea
+
+# Node modules
+node_modules
+
+# Build folder
+
+
+# OSX
+.DS_Store
+
+yarn.lock

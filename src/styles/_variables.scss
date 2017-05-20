@@ -1,0 +1,154 @@
+$content-height: calc(100vh - 329px);
+$content-clearfix-height: calc(100vh - 259px);
+$content-clearfix-height-sm: calc(100vh - 383px);
+
+$white: #FFFFFF;
+$selection-grey: #F8F8F8;
+$background-grey: #F1F1F1;
+$line-grey: #D8D8D8;
+$placeholder-grey: #AAAAAA;
+$title-grey: #999999;
+$title-black: #666666;
+$text-black: #333333;
+$black: #000000;
+
+$steel-blue: #37495F;
+$dark-steel-blue: #273242;
+
+$rentspree-dark-blue: rgb(50, 120, 179); //#3278B3
+$rentspree-blue: rgb(108, 164, 210); //#6CA4D2
+$rentspree-light-blue: rgb(153, 209, 255); //#99D1FF
+
+$rentspree-dark-orange: rgb(184, 76, 26); //#B84C1A
+$rentspree-orange: rgb(246, 100, 32); //#F66420
+$rentspree-light-orange: rgb(255, 163, 120); //#F66420
+
+$rentspree-bg-cream: #f2f1ef;
+$rentspree-cream: rgb(220, 214, 176); //#DCD6B0
+$rentspree-choc: rgb(69, 54, 41); //#453629
+
+$rentspree-dark-yellow: #A7903F;
+$rentspree-yellow: #D3B84D;
+$rentspree-light-yellow: #FFE79F;
+
+$rentspree-dark-positive-green: #67A033;
+$rentspree-positive-green: #80C640;
+$rentspree-light-positive-green: #BCF090;
+
+$rentspree-dark-negative-red: #a72f31;
+$rentspree-negative-red: #F15555;
+$simple-line-font-path: "./fonts";
+
+//Animation
+$anim-fast: 0.25s;
+$anim: 0.5s;
+$anim-slow: 1s;
+$anim-300ms: 0.3s;
+
+@mixin transition-all($duration){
+  -webkit-transition: all $duration;
+  -moz-transition: all $duration;
+  -ms-transition: all $duration;
+  -o-transition: all $duration;
+  transition: all $duration;
+}
+@mixin transition($property, $duration, $delay: 0s){
+  -webkit-transition: $property $duration ease-in-out $delay;
+  -moz-transition: $property $duration ease-in-out $delay;
+  -ms-transition: $property $duration ease-in-out $delay;
+  -o-transition: $property $duration ease-in-out $delay;
+  transition: $property $duration ease-in-out $delay;
+}
+@mixin transition-double($property1, $property2, $duration, $delay: 0s){
+  -webkit-transition: $property1 $duration ease-in-out $delay, $property2 $duration ease-in-out $delay;
+  -moz-transition: $property1 $duration ease-in-out $delay, $property2 $duration ease-in-out $delay;
+  -ms-transition: $property1 $duration ease-in-out $delay, $property2 $duration ease-in-out $delay;
+  -o-transition: $property1 $duration ease-in-out $delay, $property2 $duration ease-in-out $delay;
+  transition: $property1 $duration ease-in-out $delay, $property2 $duration ease-in-out $delay;
+}
+@mixin transition-triple($property1, $property2, $property3, $duration, $delay: 0s) {
+  -webkit-transition: $property1 $duration ease-in-out $delay, $property2 $duration ease-in-out $delay, $property3 $duration ease-in-out $delay;
+  -moz-transition: $property1 $duration ease-in-out $delay, $property2 $duration ease-in-out $delay, $property3 $duration ease-in-out $delay;
+  -ms-transition: $property1 $duration ease-in-out $delay, $property2 $duration ease-in-out $delay, $property3 $duration ease-in-out $delay;
+  -o-transition: $property1 $duration ease-in-out $delay, $property2 $duration ease-in-out $delay, $property3 $duration ease-in-out $delay;
+  transition: $property1 $duration ease-in-out $delay, $property2 $duration ease-in-out $delay, $property3 $duration ease-in-out $delay;
+}
+
+//Mixins
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+@mixin border-radius($radius) {
+  border-radius: $radius !important;
+  -webkit-border-radius: $radius !important;
+  -moz-border-radius: $radius !important;
+  -ms-border-radius: $radius !important;
+  -o-border-radius: $radius !important;
+}
+@mixin border-top-right-radius($radius) {
+  border-top-right-radius: $radius !important;
+  -webkit-border-top-right-radius: $radius !important;
+  -moz-border-top-right-radius: $radius !important;
+  -ms-border-top-right-radius: $radius !important;
+  -o-border-top-right-radius: $radius !important;
+}
+@mixin border-top-left-radius($radius) {
+  border-top-left-radius: $radius !important;
+  -webkit-border-top-left-radius: $radius !important;
+  -moz-border-top-left-radius: $radius !important;
+  -ms-border-top-left-radius: $radius !important;
+  -o-border-top-left-radius: $radius !important;
+}
+@mixin border-bottom-right-radius($radius) {
+  border-bottom-right-radius: $radius !important;
+  -webkit-border-bottom-right-radius: $radius !important;
+  -moz-border-bottom-right-radius: $radius !important;
+  -ms-border-bottom-right-radius: $radius !important;
+  -o-border-bottom-right-radius: $radius !important;
+}
+@mixin border-bottom-left-radius($radius) {
+  border-bottom-left-radius: $radius !important;
+  -webkit-border-bottom-left-radius: $radius !important;
+  -moz-border-bottom-left-radius: $radius !important;
+  -ms-border-bottom-left-radius: $radius !important;
+  -o-border-bottom-left-radius: $radius !important;
+}
+
+// Horizontal gradient, from left to right
+@mixin gradient-horizontal($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Opera 12
+  background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE9 and down
+}
+// Vertical gradient, from top to bottom
+@mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Opera 12
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
+}
+
+@mixin gradient-radial($inner-color: #555, $outer-color: #333) {
+  background-image: -webkit-radial-gradient(circle, $inner-color, $outer-color);
+  background-image: radial-gradient(circle, $inner-color, $outer-color);
+  background-repeat: no-repeat;
+}
+
+@mixin background-gradient($image-url, $start-color: rgba($white, 0), $end-color: rgba($white, 1), $start-pos: 0%, $end-pos: 100%) {
+  background: -webkit-linear-gradient($start-color $start-pos, $end-color $end-pos), url($image-url);
+  background: -moz-linear-gradient($start-color $start-pos, $end-color $end-pos), url($image-url);
+  background: -o-linear-gradient($start-color $start-pos, $end-color $end-pos), url($image-url);
+  background: -ms-linear-gradient($start-color $start-pos, $end-color $end-pos), url($image-url);
+  background: linear-gradient($start-color $start-pos, $end-color $end-pos), url($image-url);
+}

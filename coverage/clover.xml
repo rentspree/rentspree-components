@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1487939311148" clover="3.2.0">
+  <project timestamp="1487939311148" name="All files">
+    <metrics statements="16" coveredstatements="2" conditionals="39" coveredconditionals="0" methods="14" coveredmethods="1" elements="69" coveredelements="3" complexity="0" loc="16" ncloc="16" packages="1" files="3" classes="3">
+      <file name="Link.js" path="/Users/suppanathuss/Desktop/work-project/nfs-utils/nfs-react-component-creator-boilerplate/src/Link.js">
+        <metrics statements="13" coveredstatements="0" conditionals="35" coveredconditionals="0" methods="12" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+      </file>
+      <file name="TestComponent.js" path="/Users/suppanathuss/Desktop/work-project/nfs-utils/nfs-react-component-creator-boilerplate/src/TestComponent.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+      </file>
+      <file name="index.js" path="/Users/suppanathuss/Desktop/work-project/nfs-utils/nfs-react-component-creator-boilerplate/src/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </metrics>
+  </project>
+</coverage>

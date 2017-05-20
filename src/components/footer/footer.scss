@@ -1,0 +1,11 @@
+@import '../../styles/variables';
+
+.footer {
+  color: $rentspree-blue;
+  display: flex;
+  flex-direction: column;
+
+  .footerIn {
+    color: $rentspree-positive-green;
+  }
+}

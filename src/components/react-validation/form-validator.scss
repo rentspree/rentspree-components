@@ -1,0 +1,70 @@
+@import '../../styles/variables';
+@import '../../styles/icons';
+@import '../../styles/textinput';
+
+.form {
+  position: relative;
+}
+
+.formError {
+  color: $rentspree-negative-red;
+  margin-top: 5px;
+  text-align: left;
+}
+
+.showPassword {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  z-index: 2;
+
+  &:hover {
+    i {
+      color: $steel-blue;
+    }
+  }
+
+  i {
+    font-size: 1.4em;
+    color: $placeholder-grey;
+  }
+}
+
+.validateInput {
+  transition: border-color 0.2s;
+  &.hasHint {
+    border-color: $rentspree-negative-red;
+  }
+  &:focus {
+    border-color: $rentspree-blue;
+  }
+}
+
+.buttonError:hover {
+  background-color: $rentspree-negative-red !important;
+  animation: shake $anim cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-0.5px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(1px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-2px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(2px, 0, 0);
+  }
+}
+
+.textLeft {
+  text-align: left;
+}
