@@ -28,11 +28,3 @@ export const VSelect = ({ ...props }) => (
 export const VButton = ({ ...props }) => (
   <Validation.components.Button {...props} />
 )
-
-export class TestComponent extends React.Component {
-  render() {
-    return (
-      <div>This is Test Component</div>
-    )
-  }
-}
