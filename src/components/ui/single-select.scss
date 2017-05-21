@@ -3,6 +3,9 @@
 
 :global {
   .Select {
+    border: 1px solid $line-grey;
+    text-align: left;
+    @include border-radius(5px);
 
     .Select-control {
       background-color: transparent;

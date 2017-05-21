@@ -2,7 +2,8 @@ import React from 'react'
 import { storiesOf } from '@kadira/storybook'
 import {
   Validation,
-  SearchingBox
+  SearchingBox,
+  SingleSelect
 } from '../src/index'
 
 storiesOf('Input', module)
@@ -71,6 +72,26 @@ storiesOf('Textarea', module)
   ))
 
 storiesOf('Select', module)
+  .add('Basic', () => (
+    <SingleSelect
+      options={[
+        {
+          label: 'one',
+          value: 'one'
+        }, {
+          label: 'two',
+          value: 'two'
+        }, {
+          label: 'three',
+          value: 'three'
+        }
+      ]}
+      onSelectItem={ ()=>console.log('select') }
+      searchable={false}
+      value='one'
+      name='select'
+      placeholder='Select...' />
+  ))
   .add('Single', () => (
     <Validation.components.Form>
       <Validation.components.Select

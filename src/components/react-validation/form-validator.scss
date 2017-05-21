@@ -7,6 +7,13 @@
   margin-bottom: 10px;
 }
 
+.selectBox {
+
+  &.formError {
+    border: 1px solid $rentspree-negative-red;
+  }
+}
+
 .showPassword {
   cursor: pointer;
   position: absolute;
@@ -23,21 +30,6 @@
   i {
     font-size: 1.4em;
     color: $placeholder-grey;
-  }
-}
-
-.selectBox {
-  border: 1px solid $line-grey;
-  text-align: left;
-  height: 48px;
-  @include border-radius(5px);
-
-  div {
-    border: none;
-  }
-
-  &.formError {
-    border: 1px solid $rentspree-negative-red;
   }
 }
 
