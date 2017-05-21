@@ -59,6 +59,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.Validation = undefined;
 
 	var _formComponents = __webpack_require__(1);
 
@@ -72,9 +73,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	});
 
+	var _formValidator = __webpack_require__(3);
+
+	Object.defineProperty(exports, 'Validation', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_formValidator).default;
+	  }
+	});
+
 	__webpack_require__(395);
 
 	__webpack_require__(402);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	;
 
