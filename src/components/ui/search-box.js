@@ -4,7 +4,6 @@ import classnames from 'classnames/bind'
 import {invertGeocode, getLocationByAddress, getLocationByPlaceId, getSuggestions} from '../../utils/slug-route';
 import styles from './search-box.scss'
 const c = classnames.bind(styles)
-const rentspreePin = require('../../images/icons/rentspree-pin-24.png')
 
 export default class SearchingBox extends Component {
   static timeout
@@ -64,7 +63,10 @@ export default class SearchingBox extends Component {
     return (
       <div className={c('searchBox', {'sunlight': this.props.sunlightNav})}>
         <span className={c('placeholderIcon')} tabIndex="-1">
-          <img src={rentspreePin} alt="Search-box Icon"/>
+          {this.props.searchIcon ?
+            <img src={this.props.searchIcon} alt="Search-box Icon"/> :
+            <i className={c('icon-magnifier')} />
+          }
         </span>
         <Autosuggest
           id="searchBox"
