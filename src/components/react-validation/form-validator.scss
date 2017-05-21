@@ -29,7 +29,12 @@
 .selectBox {
   border: 1px solid $line-grey;
   text-align: left;
+  height: 48px;
   @include border-radius(5px);
+
+  div {
+    border: none;
+  }
 
   &.formError {
     border: 1px solid $rentspree-negative-red;

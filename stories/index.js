@@ -1,86 +1,79 @@
 import React from 'react'
 import { storiesOf } from '@kadira/storybook'
 import {
-  Form,
-  Input,
-  PhoneInput,
-  NumberInput,
-  Textarea,
-  Tags,
-  Select,
-  Button,
+  Validation,
   SearchingBox
 } from '../src/index'
 
 storiesOf('Input', module)
   .add('Text', () => (
-    <Form>
-      <Input
+    <Validation.components.Form>
+      <Validation.components.Input
         type='text'
         value=''
         name='text'
         placeholder='Text'
         validations={['required']}/>
-    </Form>
+    </Validation.components.Form>
   ))
   .add('Password', () => (
-    <Form>
-      <Input
+    <Validation.components.Form>
+      <Validation.components.Input
         type='password'
         value=''
         name='password'
         placeholder='Password'
         validations={['required', 'password', 'length8']}/>
-    </Form>
+    </Validation.components.Form>
   ))
   .add('Phone', () => (
-    <Form>
-      <PhoneInput
+    <Validation.components.Form>
+      <Validation.components.PhoneInput
         type='tel'
         value=''
         name='tel'
         placeholder='Phone Number'
         validations={['required', 'phone']}/>
-    </Form>
+    </Validation.components.Form>
   ))
   .add('Number', () => (
-    <Form>
-      <NumberInput
+    <Validation.components.Form>
+      <Validation.components.NumberInput
         type='text'
         value=''
         name='number'
         placeholder='Number'
         validations={['required']}/>
-    </Form>
+    </Validation.components.Form>
   ))
 
 storiesOf('Textarea', module)
   .add('Text', () => (
-    <Form>
-      <Textarea
+    <Validation.components.Form>
+      <Validation.components.Textarea
         type='text'
         name='selfintro'
         value=''
         placeholder='Area'
         validations={['required']}
         maxLength={500} />
-    </Form>
+    </Validation.components.Form>
   ))
   .add('Tags', () => (
-    <Form>
-      <Tags
+    <Validation.components.Form>
+      <Validation.components.Tags
         type='text'
         name='tags'
         value={[]}
         placeholder='Tags'
         validations={['required', 'duplicate']} />
-    </Form>
+    </Validation.components.Form>
   ))
 
 storiesOf('Select', module)
   .add('Single', () => (
-    <Form>
-      <Select
+    <Validation.components.Form>
+      <Validation.components.Select
         options={[
           {
             label: 'one',
@@ -98,16 +91,16 @@ storiesOf('Select', module)
         name='select'
         placeholder='Select...'
         validations={['required']} />
-    </Form>
+    </Validation.components.Form>
   ))
 
 storiesOf('Button', module)
   .add('Submit', () => (
-    <Form>
-      <Button type='submit'>
+    <Validation.components.Form>
+      <Validation.components.Button type='submit'>
         Submit
-      </Button>
-    </Form>
+      </Validation.components.Button>
+    </Validation.components.Form>
   ))
 
 storiesOf('Search', module)
