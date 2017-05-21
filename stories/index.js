@@ -130,7 +130,7 @@ storiesOf('Select', module)
           }
         ]}
         searchable
-        value=''
+        value='one'
         name='select'
         placeholder='Select...'
         validations={['required']} />

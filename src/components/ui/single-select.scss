@@ -89,6 +89,16 @@
     //@include box-shadow(0, 4px, 8px, rgba($black, 0.25));
     @include border-radius(5px);
   }
+  .Select-menu-outer {
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    z-index: 1;
+  }
+  .Select-menu {
+    max-height: 200px;
+    overflow-y: auto;
+  }
   .Select-option {
     padding: 10px 15px;
     background-color: transparent;
