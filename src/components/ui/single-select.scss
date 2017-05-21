@@ -16,7 +16,6 @@
 
       .Select-value-label {
         position: absolute;
-        top: 14px;
         left: 11px;
         color: #777 !important;
       }
@@ -93,7 +92,7 @@
     position: absolute;
     width: 100%;
     background-color: white;
-    z-index: 1;
+    z-index: 10;
   }
   .Select-menu {
     max-height: 200px;
