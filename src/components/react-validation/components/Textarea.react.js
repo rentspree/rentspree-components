@@ -46,25 +46,27 @@ class Textarea extends Component {
 
   render() {
     let data = getViewData(this.props)
-    return <div className={this.props.containerClassName || null}>
-      <textarea
-        ref='node'
-        {...data.props}
-        className={c('validateInput', 'textInput', { 'hasHint' : data.hint })}
-        checked={data.props.checked}
-        value={data.value}
-        maxLength={150}
-        onChange={this.handleChange}
-        onBlur={this.handleBlur} />
-
-      <label className={c('controlLabel', { 'hasValue': data.value })}>
-        {data.props.placeholder}&nbsp;
-        {(this.props.validations && this.props.validations.includes('required')) &&
-        <span className={c('formError')}>*</span>
-        }
-        &nbsp;{data.hint}
-      </label>
-    </div>
+    return (
+      <div className={c('relative', this.props.containerClassName)}>
+        <textarea
+          ref='node'
+          {...data.props}
+          className={c('validateInput', 'textInput', { 'hasHint' : data.hint })}
+          checked={data.props.checked}
+          value={data.value}
+          maxLength={150}
+          onChange={this.handleChange}
+          onBlur={this.handleBlur} />
+  
+        <label className={c('controlLabel', { 'hasValue': data.value })}>
+          {data.props.placeholder}&nbsp;
+          {(this.props.validations && this.props.validations.includes('required')) &&
+          <span className={c('formError')}>*</span>
+          }
+          &nbsp;{data.hint}
+        </label>
+      </div>
+    )
   }
 
   handleChange = (event) => {

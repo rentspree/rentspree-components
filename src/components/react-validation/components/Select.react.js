@@ -57,7 +57,7 @@ class Select extends Component {
     }
 
     return (
-      <div className={this.props.containerClassName || null}>
+      <div className={c('relative', this.props.containerClassName)}>
         <SingleSelect
           {...data.props}
           selectedValue={data.value}

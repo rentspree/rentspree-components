@@ -56,7 +56,7 @@ class Input extends Component {
     }
 
     return (
-      <div className={this.props.containerClassName || null}>
+      <div className={c('relative', this.props.containerClassName)}>
         <input
           ref='node'
           {...data.props}

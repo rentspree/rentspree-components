@@ -69,7 +69,7 @@ class PhoneInput extends Component {
     let myClass = this.getClass()
 
     return (
-      <div className={this.props.containerClassName || null}>
+      <div className={c('relative', this.props.containerClassName)}>
         {/*<TelephoneInput {...data.props}
          defaultCountry={'us'}
          preferredCountries={['us']}

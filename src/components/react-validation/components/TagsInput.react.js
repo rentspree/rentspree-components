@@ -63,7 +63,7 @@ class Tags extends Component {
     let data = getViewData(this.props)
 
     return (
-      <div className={this.props.containerClassName || null}>
+      <div className={c('relative', this.props.containerClassName)}>
         <TagsInput
           {...data.props}
           value={data.value || []}

@@ -15,7 +15,7 @@ class Button extends Component {
       <button
         {...data.props}
         onClick={this.handleClick}
-        className={c('btn', 'btn-lg', 'btn-info', 'btn-submit', {'buttonError' : hasErrors})}>
+        className={c('button', {'buttonError' : hasErrors})}>
         {this.props.children}
       </button>
     )

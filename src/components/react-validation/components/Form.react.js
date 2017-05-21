@@ -1,10 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import rules from './../rules.js'
 import Button from './Button.react.js'
-import classnames from 'classnames/bind'
-import styles from '../form-validator.scss'
-
-const c = classnames.bind(styles)
 
 class Form extends Component {
   constructor (props) {
@@ -179,7 +175,7 @@ class Form extends Component {
   }
 
   render () {
-    return <form {...this.props} className={c('form')}>
+    return <form {...this.props}>
       {this._clone (this.props.children)}
     </form>
   }

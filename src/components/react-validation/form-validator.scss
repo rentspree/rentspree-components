@@ -2,7 +2,7 @@
 @import '../../styles/icons';
 @import '../../styles/textinput';
 
-.form {
+.relative {
   position: relative;
 }
 
@@ -39,6 +39,17 @@
   &:focus {
     border-color: $rentspree-blue;
   }
+}
+
+.button {
+  position: relative;
+  background-color: $rentspree-blue;
+  color: $white;
+  border: none;
+  font-weight: bold;
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 10px;
 }
 
 .buttonError:hover {
