@@ -3,6 +3,7 @@
 
 :global {
   .Select-control {
+    position: relative;
     border: 1px solid $line-grey;
     background-color: transparent;
     height: 48px; //border at parent will expand this to 50px
@@ -22,20 +23,36 @@
     }
   }
   .Select-placeholder, .Select-input, .Select--single > .Select-control .Select-value {
-    color: transparent;
+    line-height: 48px;
     text-align: left;
     //line-height: 40px !important;
     padding-left: 15px;
     padding-right: 15px;
     font-weight: 400;
+  }
+
+  .Select-placeholder {
+    color: $placeholder-grey;
+  }
+
+  .Select-input {
+    line-height: 20px;
+    float: left;
 
     input {
+      border: none;
+      background-color: transparent;
       position: relative;
-      top: 16px;
-      left: -5px;
+      top: 20px;
+      left: -6px;
       color: $title-black;
+
+      &:focus {
+        outline: none;
+      }
     }
   }
+
   .is-open > .Select-control {
     border-color: $rentspree-light-blue !important;
   }

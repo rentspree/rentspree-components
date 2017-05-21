@@ -16,6 +16,10 @@
   :global {
     .Select-value-label {
       top: 22px !important;
+      line-height: 20px !important;
+    }
+    .Select-placeholder {
+      display: none;
     }
   }
 }

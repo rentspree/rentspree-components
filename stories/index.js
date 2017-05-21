@@ -88,11 +88,11 @@ storiesOf('Select', module)
       ]}
       onSelectItem={ ()=>console.log('select') }
       searchable={false}
-      value='one'
+      value=''
       name='select'
       placeholder='Select...' />
   ))
-  .add('Single', () => (
+  .add('With Label', () => (
     <Validation.components.Form>
       <Validation.components.Select
         options={[
@@ -109,6 +109,28 @@ storiesOf('Select', module)
         ]}
         searchable={false}
         value='one'
+        name='select'
+        placeholder='Select...'
+        validations={['required']} />
+    </Validation.components.Form>
+  ))
+  .add('Searchable', () => (
+    <Validation.components.Form>
+      <Validation.components.Select
+        options={[
+          {
+            label: 'one',
+            value: 'one'
+          }, {
+            label: 'two',
+            value: 'two'
+          }, {
+            label: 'three',
+            value: 'three'
+          }
+        ]}
+        searchable
+        value=''
         name='select'
         placeholder='Select...'
         validations={['required']} />
