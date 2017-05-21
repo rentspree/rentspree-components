@@ -12,6 +12,12 @@
   &.formError {
     border: 1px solid $rentspree-negative-red;
   }
+
+  :global {
+    .Select-value-label {
+      top: 22px !important;
+    }
+  }
 }
 
 .showPassword {
