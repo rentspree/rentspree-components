@@ -1,1 +1,118 @@
-@import '../../styles/global';
+@import '../../styles/variables';
+@import '../../styles/icons';
+
+:global {
+  .Select {
+
+    .Select-control {
+      background-color: transparent;
+      height: 48px; //border at parent will expand this to 50px
+      border: none !important;
+      box-shadow: none !important;
+      @include border-radius(5px);
+      @include transition(border-color, $anim);
+
+      .Select-value {
+        padding-left: 0 !important;
+
+        .Select-value-label {
+          position: absolute;
+          top: 22px;
+          left: 11px;
+          color: #777 !important;
+        }
+      }
+    }
+    .Select-placeholder, .Select-input, .Select--single > .Select-control .Select-value {
+      color: transparent;
+      text-align: left;
+      //line-height: 40px !important;
+      padding-left: 15px;
+      padding-right: 15px;
+      font-weight: 400;
+
+      input {
+        position: relative;
+        top: 16px;
+        left: -5px;
+        color: $title-black;
+      }
+    }
+    .is-open > .Select-control {
+      border-color: $rentspree-light-blue !important;
+    }
+
+    //Select arrow
+    .Select-arrow-zone {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding-top: 15px;
+      padding-right: 15px;
+    }
+    .Select-arrow {
+      border: none;
+    }
+    .Select-arrow:after {
+      font-family: 'simple-line-icons';
+      content: '\e604';
+      color: $placeholder-grey;
+      @include transition(color, $anim-fast);
+    }
+    .is-open .Select-arrow:after {
+      font-family: 'simple-line-icons';
+      content: "\e607";
+      color: $rentspree-blue;
+    }
+
+    //Select dropdown
+    .Select-menu-outer {
+      z-index: 100;
+      margin: 1px 0;
+      border: 1px solid $line-grey;
+      font-weight: 400;
+      //@include box-shadow(0, 4px, 8px, rgba($black, 0.25));
+      @include border-radius(5px);
+    }
+    .Select-option {
+      padding: 10px 15px;
+      background-color: transparent;
+      text-align: left;
+    }
+    .Select-option:first-child {
+      @include border-top-right-radius(4px);
+      @include border-top-left-radius(4px);
+    }
+    .Select-option.is-focused {
+      background-color: rgba($rentspree-light-blue, 0.25);
+    }
+    .Select-option.is-selected {
+      background-color: rgba($rentspree-light-blue, 0.75);
+    }
+
+    //Tags
+    .Select--multi .Select-value {
+      background-color: rgba($rentspree-blue, 1);
+      border: none;
+      color: $white;
+      font-size: 1.1em;
+      font-weight: 400;
+      margin: 4px;
+      margin-right: 0;
+      border-radius: 20px;
+      padding: 0 5px;
+    }
+    .Select--multi .Select-value-label {
+      padding: 5px;
+    }
+    .Select--multi .Select-value-icon {
+      border-right: none;
+      padding: 2px 5px 3px;
+    }
+    .Select--multi .Select-value-icon:hover,
+    .Select--multi .Select-value-icon:focus {
+      color: $rentspree-negative-red;
+      background-color: transparent;
+    }
+  }
+}

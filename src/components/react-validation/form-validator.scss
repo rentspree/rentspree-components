@@ -7,12 +7,6 @@
   margin-bottom: 10px;
 }
 
-.formError {
-  color: $rentspree-negative-red;
-  margin-top: 5px;
-  text-align: left;
-}
-
 .showPassword {
   cursor: pointer;
   position: absolute;
@@ -32,13 +26,13 @@
   }
 }
 
-.validateInput {
-  transition: border-color 0.2s;
-  &.hasHint {
-    border-color: $rentspree-negative-red;
-  }
-  &:focus {
-    border-color: $rentspree-blue;
+.selectBox {
+  border: 1px solid $line-grey;
+  text-align: left;
+  @include border-radius(5px);
+
+  &.formError {
+    border: 1px solid $rentspree-negative-red;
   }
 }
 
@@ -78,6 +72,18 @@
   }
 }
 
-.textLeft {
+.validateInput {// Border Color
+  transition: border-color 0.2s;
+  &.hasHint {
+    border-color: $rentspree-negative-red;
+  }
+  &:focus {
+    border-color: $rentspree-blue;
+  }
+}
+
+.formError { // Hint Color
+  color: $rentspree-negative-red;
+  margin-top: 5px;
   text-align: left;
 }

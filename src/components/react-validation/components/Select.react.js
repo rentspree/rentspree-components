@@ -61,7 +61,7 @@ class Select extends Component {
         <SingleSelect
           {...data.props}
           selectedValue={data.value}
-          className={c({'formError' : data.hint}, 'textLeft')}
+          className={c({'formError' : data.hint}, 'selectBox')}
           onSelectItem={this.handleChange.bind(this)}/>
 
         <label className={c('controlLabel', {'hasValue': data.value})}>

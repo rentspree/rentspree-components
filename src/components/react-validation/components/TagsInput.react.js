@@ -5,7 +5,6 @@ import TagsInput from 'react-tagsinput'
 import _ from 'lodash'
 import classnames from 'classnames/bind'
 import styles from '../form-validator.scss'
-import '../../../styles/_global.scss';
 
 const c = classnames.bind(styles)
 
