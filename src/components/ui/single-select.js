@@ -1,6 +1,6 @@
 import React from 'react';
 import Select from 'react-select';
-import './single-select'
+import './single-select.scss'
 
 export default class SingleSelect extends React.Component {
 

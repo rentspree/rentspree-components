@@ -1,0 +1,1 @@
+module.exports = __webpack_public_path__ + "static/media/glyphicons-halflings-regular.448c34a5.woff2";

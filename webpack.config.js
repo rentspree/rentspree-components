@@ -24,6 +24,17 @@ module.exports = {
         query: require('./config/babel.dev')
       },
       {
+        test: /\.json$/,
+        loader: 'json'
+      },
+      {
+        test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
+        loader: 'file',
+        query: {
+          name: 'static/media/[name].[hash:8].[ext]'
+        }
+      },
+      {
         test: /\.svg$/,
         loader: 'raw-loader'
       },
@@ -53,7 +64,15 @@ module.exports = {
       }
     ],
     resolve: {
-      extensions: ['', '.js', '.jsx']
+      extensions: ['', '.js', '.json', '.jsx']
     }
+  },
+
+  // Some libraries import Node modules but don't use them in the browser.
+  // Tell Webpack to provide empty mocks for them so importing them works.
+  node: {
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   }
 }

@@ -8,7 +8,8 @@ import {
   Textarea,
   Tags,
   Select,
-  Button
+  Button,
+  SearchingBox
 } from '../src/index'
 
 storiesOf('Input', module)
@@ -107,4 +108,9 @@ storiesOf('Button', module)
         Submit
       </Button>
     </Form>
+  ))
+
+storiesOf('Search', module)
+  .add('Address', () => (
+    <SearchingBox onSelected={()=> console.log('Search')} />
   ))
