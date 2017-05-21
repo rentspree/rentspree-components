@@ -54339,15 +54339,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	var c = _bind2.default.bind(_searchBox2.default);
 	var rentspreePin = __webpack_require__(683);
 
-	var GoogleMapsAPI = __webpack_require__(435);
-	var publicConfig = {
-	  key: 'AIzaSyCu56R6oRu9fHnXMamQzQPUjFFKmXBuFrw',
-	  stagger_time: 1000, // for elevationPath
-	  encode_polylines: false,
-	  secure: true // use https
-	};
-	var googlemaps = new GoogleMapsAPI(publicConfig);
-
 	var SearchingBox = function (_Component) {
 	  _inherits(SearchingBox, _Component);
 
@@ -54357,7 +54348,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var _this = _possibleConstructorReturn(this, (SearchingBox.__proto__ || Object.getPrototypeOf(SearchingBox)).call(this, props));
 
 	    _this.getSuggestionValue = function (suggestion) {
-
 	      //If official no need to fetch Google placeId
 	      if (suggestion.official) {
 	        _this.timeout && clearTimeout(_this.timeout);
@@ -54518,6 +54508,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          reason = _ref.reason;
 
 	      (0, _slugRoute.getSuggestions)(value).then(function (result) {
+
 	        _this2.setState({ suggestions: result });
 	        // let filteredSuggestions = this.props.officialPages.filter((item) => {
 	        //   return item.value.toLowerCase().startsWith(value.toLowerCase());
@@ -54629,10 +54620,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  __REACT_HOT_LOADER__.register(c, 'c', '/Users/green/Sites/rentspree-components/src/components/ui/search-box.js');
-
-	  __REACT_HOT_LOADER__.register(publicConfig, 'publicConfig', '/Users/green/Sites/rentspree-components/src/components/ui/search-box.js');
-
-	  __REACT_HOT_LOADER__.register(googlemaps, 'googlemaps', '/Users/green/Sites/rentspree-components/src/components/ui/search-box.js');
 
 	  __REACT_HOT_LOADER__.register(SearchingBox, 'SearchingBox', '/Users/green/Sites/rentspree-components/src/components/ui/search-box.js');
 	})();
@@ -57820,7 +57807,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  //console.log('invertgeo', neighbourhood, city, state)
 	  return neighbourhood !== '' ? neighbourhood + ', ' + city + ', ' + state : city + ', ' + state;
 	}
-
 	function getLocationByAddress(address, callback) {
 	  if (typeof window !== 'undefined' && window.google) {
 	    var geocoder = new google.maps.Geocoder();
@@ -57845,7 +57831,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	  }
 	}
-
 	function getLocationByPlaceId(placeId, callback) {
 	  if (typeof window !== 'undefined' && window.google) {
 	    var geocoder = new google.maps.Geocoder();
@@ -57870,14 +57855,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	  }
 	}
-
 	function getSuggestions(value) {
 	  return new Promise(function (resolve, reject) {
-	    if (!value || !window.google) {
+	    if (!value || !google) {
 	      resolve([]);
 	      return;
 	    }
+	    console.log('get sg', value);
+
 	    var service = new google.maps.places.AutocompleteService();
+	    console.log('service', service);
 	    service.getPlacePredictions({
 	      input: value,
 	      types: ['geocode'],
@@ -57885,6 +57872,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        country: 'us'
 	      }
 	    }, function (predicts) {
+	      console.log('predicts', predicts);
 	      if (!predicts) {
 	        resolve([]);
 	        return;
@@ -121567,7 +121555,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 683 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "static/media/rentspree-pin-24.fb0378aa.png";
+	module.exports = __webpack_require__.p + "static/media/rentspree-pin-24.61211053.png";
 
 /***/ }),
 /* 684 */
@@ -121613,31 +121601,31 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 686 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "static/media/glyphicons-halflings-regular.8d544366.eot";
+	module.exports = __webpack_require__.p + "static/media/glyphicons-halflings-regular.f4769f9b.eot";
 
 /***/ }),
 /* 687 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "static/media/glyphicons-halflings-regular.978e9277.woff2";
+	module.exports = __webpack_require__.p + "static/media/glyphicons-halflings-regular.448c34a5.woff2";
 
 /***/ }),
 /* 688 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "static/media/glyphicons-halflings-regular.ef926016.woff";
+	module.exports = __webpack_require__.p + "static/media/glyphicons-halflings-regular.fa277232.woff";
 
 /***/ }),
 /* 689 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "static/media/glyphicons-halflings-regular.e62167a3.ttf";
+	module.exports = __webpack_require__.p + "static/media/glyphicons-halflings-regular.e18bbf61.ttf";
 
 /***/ }),
 /* 690 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "static/media/glyphicons-halflings-regular.10cf2208.svg";
+	module.exports = __webpack_require__.p + "static/media/glyphicons-halflings-regular.89889688.svg";
 
 /***/ }),
 /* 691 */

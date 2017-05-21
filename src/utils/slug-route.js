@@ -20,7 +20,6 @@ export function invertGeocode (firstLocal, secondLocal) {
   //console.log('invertgeo', neighbourhood, city, state)
   return (neighbourhood !== '') ? neighbourhood + ', ' + city + ', ' + state : city + ', ' + state
 }
-
 export function getLocationByAddress (address, callback) {
   if (typeof window !== 'undefined' && window.google) {
     var geocoder = new google.maps.Geocoder
@@ -45,7 +44,6 @@ export function getLocationByAddress (address, callback) {
     })
   }
 }
-
 export function getLocationByPlaceId (placeId, callback) {
   if (typeof window !== 'undefined' && window.google) {
     var geocoder = new google.maps.Geocoder
@@ -70,14 +68,16 @@ export function getLocationByPlaceId (placeId, callback) {
     })
   }
 }
-
 export function getSuggestions (value) {
   return new Promise((resolve, reject) => {
-    if (!value || !window.google) {
+    if (!value || !google) {
       resolve([])
       return
     }
+    console.log('get sg', value)
+
     const service = new google.maps.places.AutocompleteService()
+    console.log('service', service)
     service.getPlacePredictions({
       input: value,
       types: ['geocode'],
@@ -85,6 +85,7 @@ export function getSuggestions (value) {
         country: 'us'
       }
     }, (predicts) => {
+      console.log('predicts', predicts)
       if (!predicts) {
         resolve([])
         return

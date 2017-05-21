@@ -6,15 +6,6 @@ import styles from './search-box.scss'
 const c = classnames.bind(styles)
 const rentspreePin = require('../../images/icons/rentspree-pin-24.png')
 
-var GoogleMapsAPI  = require('googlemaps');
-var publicConfig = {
-  key: 'AIzaSyCu56R6oRu9fHnXMamQzQPUjFFKmXBuFrw',
-  stagger_time:       1000, // for elevationPath
-  encode_polylines:   false,
-  secure:             true // use https
-};
-var googlemaps = new GoogleMapsAPI(publicConfig);
-
 export default class SearchingBox extends Component {
   static timeout
 
@@ -107,6 +98,7 @@ export default class SearchingBox extends Component {
 
   onSuggestionsUpdateRequested({value, reason}) {
     getSuggestions(value).then((result)=> {
+
       this.setState({suggestions: result});
       // let filteredSuggestions = this.props.officialPages.filter((item) => {
       //   return item.value.toLowerCase().startsWith(value.toLowerCase());
@@ -131,7 +123,6 @@ export default class SearchingBox extends Component {
   }
 
   getSuggestionValue = (suggestion) => {
-
     //If official no need to fetch Google placeId
     if(suggestion.official) {
       this.timeout && clearTimeout(this.timeout);

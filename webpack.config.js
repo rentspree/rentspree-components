@@ -35,18 +35,6 @@ module.exports = {
         }
       },
       {
-        test: /\.svg$/,
-        loader: 'raw-loader'
-      },
-      {
-        test: /\.(ico|jpg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
-        exclude: /\/favicon.ico$/,
-        loader: 'file',
-        query: {
-          name: 'static/media/[name].[hash:8].[ext]'
-        }
-      },
-      {
         test: /\.css$/,
         loader: 'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:6]!autoprefixer'
       },
