@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 import { storiesOf } from '@kadira/storybook'
 import {
   Validation,
@@ -134,6 +135,32 @@ storiesOf('Select', module)
         name='select'
         placeholder='Select...'
         validations={['required']} />
+    </Validation.components.Form>
+  ))
+
+storiesOf('DatePick', module)
+  .add('Basic', () => (
+    <Validation.components.Form>
+      <Validation.components.DatePick
+        type='text'
+        value={moment()}
+        name='date'
+        placeholder='Date'
+        validations={['required']}
+        dropdownMode='select' />
+    </Validation.components.Form>
+  ))
+  .add('MonthYear', () => (
+    <Validation.components.Form>
+      <Validation.components.DatePick
+        type='text'
+        value={moment()}
+        name='date'
+        placeholder='Date'
+        validations={['required']}
+        dropdownMode='select'
+        showMonthDropdown
+        showYearDropdown />
     </Validation.components.Form>
   ))
 

@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import getViewData from './../helpers/get-view-data.js'
 import rules from './../rules.js'
-import SingleSelect from '../../../components/ui/single-select'
+import SingleSelect from '../../ui/single-select'
 import classnames from 'classnames/bind'
 import styles from '../form-validator.scss'
 

@@ -6,6 +6,7 @@ import Textarea from './components/Textarea.react.js'
 import Button from './components/Button.react.js'
 import PhoneInput from './components/PhoneInput.react.js'
 import Tags from './components/TagsInput.react.js'
+import DatePick from './components/DatePick.react.js'
 import rules from './rules.js'
 
 module.exports = {
@@ -17,7 +18,8 @@ module.exports = {
     Textarea,
     Button,
     PhoneInput,
-    Tags
+    Tags,
+    DatePick
   },
   rules
 }
