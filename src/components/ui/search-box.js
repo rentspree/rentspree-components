@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import Autosuggest from 'react-autosuggest';
 import classnames from 'classnames/bind'
-import {invertGeocode, getLocationByAddress, getLocationByPlaceId, getSuggestions} from '../../utils/slug-route';
+import {invertGeocode, getLocationByPlaceId, getSuggestions} from '../../utils/slug-route';
 import styles from './search-box.scss'
 const c = classnames.bind(styles)
 
@@ -20,18 +20,6 @@ export default class SearchingBox extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSuggestionsUpdateRequested = this.onSuggestionsUpdateRequested.bind(this);
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.neighbourhood !== prevProps.neighbourhood) {
-      let value = (this.props.neighbourhood.searchOptions) ?
-        invertGeocode(this.props.neighbourhood.searchOptions.firstLocal, this.props.neighbourhood.searchOptions.secondLocal) : '';
-
-      this.setState({
-        value: value,
-        placeholder: value
-      });
-    }
   }
 
   styleMapper(s) {
@@ -86,7 +74,7 @@ export default class SearchingBox extends Component {
     if(suggestion.official) {
       return (
         <div className={c('officialSuggestion')}>
-          <span className={c('officialText')}>Official Page: </span>
+          <span className={c('officialText')}>Official: </span>
           <span>{suggestion.value}</span>
           <img src={suggestion.logo} className={c('officialIcon')} alt="Search Pin"/>
         </div>
@@ -99,18 +87,16 @@ export default class SearchingBox extends Component {
   }
 
   onSuggestionsUpdateRequested({value, reason}) {
-    getSuggestions(value).then((result)=> {
+    getSuggestions(value).then((result) => {
+      let filteredSuggestions = this.props.officialPages.filter((item) => {
+        return item.value.toLowerCase().startsWith(value.toLowerCase());
+      });
 
-      this.setState({suggestions: result});
-      // let filteredSuggestions = this.props.officialPages.filter((item) => {
-      //   return item.value.toLowerCase().startsWith(value.toLowerCase());
-      // });
-      //
-      // if(filteredSuggestions.length > 0) {
-      //   this.setState({suggestions: [ ...filteredSuggestions, ...result ].slice(0, 5)});
-      // } else {
-      //   this.setState({suggestions: result});
-      // }
+      if(filteredSuggestions.length > 0) {
+        this.setState({suggestions: [ ...filteredSuggestions, ...result ].slice(0, 5)});
+      } else {
+        this.setState({suggestions: result});
+      }
     });
 
   }
@@ -164,6 +150,6 @@ export default class SearchingBox extends Component {
 }
 
 SearchingBox.propTypes = {
-  sunlightNav: PropTypes.bool,
-  onSelected: PropTypes.func.isRequired
+  onSelected: PropTypes.func.isRequired,
+  officialPages: PropTypes.array.isRequired,
 }
