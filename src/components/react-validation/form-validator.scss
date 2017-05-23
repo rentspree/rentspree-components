@@ -13,13 +13,15 @@
     border: 1px solid $rentspree-negative-red;
   }
 
-  :global {
-    .Select-value-label {
-      top: 21px !important;
-      line-height: 20px !important;
-    }
-    .Select-placeholder {
-      display: none;
+  &.hasLabel {
+    :global {
+      .Select-value-label {
+        top: 21px !important;
+        line-height: 20px !important;
+      }
+      .Select-placeholder {
+        display: none;
+      }
     }
   }
 }

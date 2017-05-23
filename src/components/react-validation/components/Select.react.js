@@ -55,22 +55,23 @@ class Select extends Component {
     if (data.props.isPullValue) {
       delete data.props.isPullValue
     }
+    console.log(data);
 
     return (
       <div className={c('relative', this.props.containerClassName)}>
         <SingleSelect
           {...data.props}
           selectedValue={data.value}
-          className={c({'formError' : data.hint}, 'selectBox')}
+          className={c({'formError': data.hint}, 'selectBox', {'hasLabel': !data.props.noLabel})}
           onSelectItem={this.handleChange.bind(this)}/>
 
-        <label className={c('controlLabel', {'hasValue': data.value})}>
-          {data.props.placeholder}&nbsp;
-          {(this.props.validations && this.props.validations.includes('required')) &&
-          <span className={c('formError')}>*</span>
-          }
-          &nbsp;{data.hint}
-        </label>
+        {!data.props.noLabel &&
+          <label className={c('controlLabel', {'hasValue': data.value})}>
+            {data.props.placeholder}&nbsp;
+            {this.props.validations && this.props.validations.includes('required') && <span className={c('formError')}>*</span>}
+            &nbsp;{data.hint}
+          </label>
+        }
       </div>
     )
   }

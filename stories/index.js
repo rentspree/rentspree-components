@@ -1,6 +1,6 @@
 import React from 'react'
 import moment from 'moment'
-import { storiesOf } from '@kadira/storybook'
+import { storiesOf, action } from '@kadira/storybook'
 import {
   Validation,
   SearchingBox,
@@ -74,24 +74,28 @@ storiesOf('Textarea', module)
 
 storiesOf('Select', module)
   .add('Basic', () => (
-    <SingleSelect
-      options={[
-        {
-          label: 'one',
-          value: 'one'
-        }, {
-          label: 'two',
-          value: 'two'
-        }, {
-          label: 'three',
-          value: 'three'
-        }
-      ]}
-      onSelectItem={ ()=>console.log('select') }
-      searchable={false}
-      value=''
-      name='select'
-      placeholder='Select...' />
+    <Validation.components.Form>
+      <Validation.components.Select
+        options={[
+          {
+            label: 'one',
+            value: 'one'
+          }, {
+            label: 'two',
+            value: 'two'
+          }, {
+            label: 'three',
+            value: 'three'
+          }
+        ]}
+        onSelectItem={ action('selected') }
+        searchable={false}
+        value=''
+        name='select'
+        noLabel
+        placeholder='Select...'
+        validations={['required']} />
+    </Validation.components.Form>
   ))
   .add('With Label', () => (
     <Validation.components.Form>
@@ -108,6 +112,7 @@ storiesOf('Select', module)
             value: 'three'
           }
         ]}
+        onSelectItem={ action('selected') }
         searchable={false}
         value=''
         name='select'
@@ -130,6 +135,7 @@ storiesOf('Select', module)
             value: 'three'
           }
         ]}
+        onSelectItem={ action('selected') }
         searchable
         value=''
         name='select'
