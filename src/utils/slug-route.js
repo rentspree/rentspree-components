@@ -74,10 +74,8 @@ export function getSuggestions (value) {
       resolve([])
       return
     }
-    console.log('get sg', value)
 
     const service = new google.maps.places.AutocompleteService()
-    console.log('service', service)
     service.getPlacePredictions({
       input: value,
       types: ['geocode'],
@@ -85,7 +83,6 @@ export function getSuggestions (value) {
         country: 'us'
       }
     }, (predicts) => {
-      console.log('predicts', predicts)
       if (!predicts) {
         resolve([])
         return
