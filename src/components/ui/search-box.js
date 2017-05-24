@@ -87,16 +87,18 @@ export default class SearchingBox extends Component {
   }
 
   onSuggestionsUpdateRequested({value, reason}) {
-    getSuggestions(value).then((result) => {
-      let filteredSuggestions = this.props.officialPages.filter((item) => {
-        return item.value.toLowerCase().startsWith(value.toLowerCase());
-      });
+    getSuggestions(value).then((result)=> {
 
-      if(filteredSuggestions.length > 0) {
-        this.setState({suggestions: [ ...filteredSuggestions, ...result ].slice(0, 5)});
-      } else {
-        this.setState({suggestions: result});
-      }
+      this.setState({suggestions: result});
+      // let filteredSuggestions = this.props.officialPages.filter((item) => {
+      //   return item.value.toLowerCase().startsWith(value.toLowerCase());
+      // });
+      //
+      // if(filteredSuggestions.length > 0) {
+      //   this.setState({suggestions: [ ...filteredSuggestions, ...result ].slice(0, 5)});
+      // } else {
+      //   this.setState({suggestions: result});
+      // }
     });
 
   }
@@ -151,5 +153,5 @@ export default class SearchingBox extends Component {
 
 SearchingBox.propTypes = {
   onSelected: PropTypes.func.isRequired,
-  officialPages: PropTypes.array.isRequired,
+  officialPages: PropTypes.array,
 }
