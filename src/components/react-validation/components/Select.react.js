@@ -55,8 +55,7 @@ class Select extends Component {
     if (data.props.isPullValue) {
       delete data.props.isPullValue
     }
-    console.log(data);
-
+    
     return (
       <div className={c('relative', this.props.containerClassName)}>
         <SingleSelect
