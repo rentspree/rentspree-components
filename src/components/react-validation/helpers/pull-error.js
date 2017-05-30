@@ -9,12 +9,8 @@ if (!String.prototype.includes) {
 
 // TODO: Rework React.element appearance
 module.exports = props => {
-  console.log(' name =========> ', props.name)
-  console.log(' states =========> ', props.states)
-  console.log(' error =========> ', props.errors)
-  console.log(' state =========> ', props.states[props.name])
   let state, error
-  if (props.states && props.states.hasOwnProperty(props.name)) {
+  if (props.states && props.states.hasOwnProperty(props.name) && props.errors && props.errors.hasOwnProperty(props.name)) {
     state = props.states[props.name]
     error = props.errors[props.name]
   }
