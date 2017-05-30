@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react'
+import React, { Component, PropTypes } from 'react'
 import getViewData from './../helpers/get-view-data.js'
 import classnames from 'classnames/bind'
 import styles from '../form-validator.scss'
@@ -7,27 +7,27 @@ const c = classnames.bind(styles)
 
 class Button extends Component {
   render () {
-    let data = getViewData (this.props)
-    let { errors } = this.props
+    let data = getViewData(this.props)
+    let {errors} = this.props
     let hasErrors = Object.keys(errors).length
 
     return (
       <button
         {...data.props}
         onClick={this.handleClick}
-        className={c('button', {'buttonError' : hasErrors})}>
+        className={c('button', {'buttonError': hasErrors})}>
         {this.props.children}
       </button>
     )
   }
 
   handleClick = (event) => {
-    let errorNames = Object.keys (this.props.errors)
+    let errorNames = Object.keys(this.props.errors)
 
     if (errorNames.length > 0) {
-      event.preventDefault ()
-      errorNames.forEach ((item, index) => {
-        this.props.validate (item)
+      event.preventDefault()
+      errorNames.forEach((item) => {
+        this.props.validate(item)
       })
     }
     else {
