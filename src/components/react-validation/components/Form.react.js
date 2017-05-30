@@ -115,7 +115,7 @@ class Form extends Component {
       let props = {}
       let isValidationComponent = child.props.validations && child.props.validations.length
       console.log(' child.type.name   =========> ', child.type.name)
-      if (child.type.name === 'Button' || isValidationComponent) {
+      if (child.type === Button || isValidationComponent) {
         props = Object.assign ({}, this.state)
 
         this._extendProps (props)

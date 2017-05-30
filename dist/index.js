@@ -887,7 +887,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var props = {};
 	        var isValidationComponent = child.props.validations && child.props.validations.length;
 	        console.log(' child.type.name   =========> ', child.type.name);
-	        if (child.type.name === 'Button' || isValidationComponent) {
+	        if (child.type === _ButtonReact2.default || isValidationComponent) {
 	          props = Object.assign({}, _this3.state);
 
 	          _this3._extendProps(props);
