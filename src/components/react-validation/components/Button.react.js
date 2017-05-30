@@ -7,13 +7,13 @@ const c = classnames.bind(styles)
 
 class Button extends Component {
   render () {
-    // let data = getViewData(this.props)
+    let data = getViewData(this.props)
     let {errors} = this.props
     let hasErrors = Object.keys(errors).length
 
     return (
       <button
-        {...this.props}
+        {...data.props}
         onClick={this.handleClick}
         className={c('button', {'buttonError': hasErrors})}>
         {this.props.children}
@@ -26,7 +26,7 @@ class Button extends Component {
 
     if (errorNames.length > 0) {
       event.preventDefault()
-      errorNames.forEach((item) => {
+      errorNames.forEach((item, index) => {
         this.props.validate(item)
       })
     }
