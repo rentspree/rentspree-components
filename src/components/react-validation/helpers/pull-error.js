@@ -13,8 +13,11 @@ module.exports = props => {
   console.log(' states =========> ', props.states)
   console.log(' error =========> ', props.errors)
   console.log(' state =========> ', props.states[props.name])
-  let state = props.states[props.name]
-  let error = props.errors[props.name]
+  let state, error
+  if (props.states && props.states.hasOwnProperty(props.name)) {
+    state = props.states[props.name]
+    error = props.errors[props.name]
+  }
 
   if (React.isValidElement(error) || (error && error.includes(':'))) {
     return error
