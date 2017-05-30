@@ -9,6 +9,7 @@ if (!String.prototype.includes) {
 
 // TODO: Rework React.element appearance
 module.exports = props => {
+  console.log(' props =========> ', props);
   console.log(' name =========> ', props.name)
   console.log(' states =========> ', props.states)
   console.log(' error =========> ', props.errors)
