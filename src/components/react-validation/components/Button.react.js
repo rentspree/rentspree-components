@@ -7,13 +7,13 @@ const c = classnames.bind(styles)
 
 class Button extends Component {
   render () {
-    let data = getViewData (this.props)
+    //let data = getViewData (this.props)
     let { errors } = this.props
     let hasErrors = Object.keys(errors).length
 
     return (
       <button
-        {...data.props}
+        {...this.props}
         onClick={this.handleClick}
         className={c('button', {'buttonError' : hasErrors})}>
         {this.props.children}
