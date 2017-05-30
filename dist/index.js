@@ -886,7 +886,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	        var props = {};
 	        var isValidationComponent = child.props.validations && child.props.validations.length;
-	        console.log(' child.type.name   =========> ', child.type.name);
 	        if (child.type === _ButtonReact2.default || isValidationComponent) {
 	          props = Object.assign({}, _this3.state);
 
@@ -1272,11 +1271,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// TODO: Rework React.element appearance
 	module.exports = function (props) {
-	  console.log(' props =========> ', props);
-	  console.log(' name =========> ', props.name);
-	  console.log(' states =========> ', props.states);
-	  console.log(' error =========> ', props.errors);
-	  console.log(' state =========> ', props.states[props.name]);
 	  var state = props.states[props.name];
 	  var error = props.errors[props.name];
 
