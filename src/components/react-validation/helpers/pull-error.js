@@ -10,11 +10,12 @@ if (!String.prototype.includes) {
 // TODO: Rework React.element appearance
 module.exports = props => {
   console.log(' props in pull-error =========> ', props)
-  let state = {}
-  if (props.states && props.states.hasOwnProperty(props.name) && !props.isPullValue) {
+  let state = {}, error = {}
+  if (props.states && props.states.hasOwnProperty(props.name)) {
     state = props.states[props.name]
+    error = props.errors[props.name]
   }
-  let error = props.errors[props.name]
+
 
   if (React.isValidElement(error) || error && error.includes(':')) {
     return error
