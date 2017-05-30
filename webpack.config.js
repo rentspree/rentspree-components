@@ -1,4 +1,4 @@
-var autoprefixer = require('autoprefixer');
+var autoprefixer = require('autoprefixer')
 
 module.exports = {
   entry: './src/index.js',
@@ -7,14 +7,24 @@ module.exports = {
     sourceMapFilename: './dist/index.js.map',
     libraryTarget: 'umd'
   },
-  externals: [{
-    react: {
-      root: 'React',
-      commonjs2: 'react',
-      commonjs: 'react',
-      amd: 'react'
-    }
-  }],
+  externals: [
+    {
+      react: {
+        root: 'React',
+        commonjs2: 'react',
+        commonjs: 'react',
+        amd: 'react'
+      },
+    },
+    {
+      'react-dom': {
+        root: 'ReactDOM',
+        commonjs2: 'react-dom',
+        commonjs: 'react-dom',
+        amd: 'react-dom',
+      },
+    },
+  ],
   module: {
     loaders: [
       {
