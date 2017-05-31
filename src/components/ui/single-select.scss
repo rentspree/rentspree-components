@@ -113,6 +113,12 @@
   .Select-option.is-selected {
     background-color: rgba($rentspree-light-blue, 0.75);
   }
+  .Select-noresults {
+    padding: 10px 15px;
+    background-color: transparent;
+    color: $placeholder-grey;
+    text-align: left;
+  }
 
   //Tags
   .Select--multi .Select-value {

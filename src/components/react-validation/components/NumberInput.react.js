@@ -63,7 +63,7 @@ class NumberInput extends Component {
         <label className={c('controlLabel', { 'hasValue': data.value })}>
           {data.props.placeholder}&nbsp;
           {(this.props.validations && this.props.validations.includes('required')) &&
-            <span className={c('formError')}>*</span>
+            <span className={c('errorMessage')}>*</span>
           }
           &nbsp;{data.hint}
         </label>

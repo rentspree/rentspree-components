@@ -61,7 +61,7 @@ class Input extends Component {
           ref='node'
           {...data.props}
           type={this.state.type}
-          className={c('validateInput', 'textInput', { 'hasHint' : data.hint })}
+          className={c('validateInput', 'textInput', { 'hasHint' : true })}
           checked={data.props.checked}
           value={data.value}
           onChange={this.handleChange}
@@ -69,9 +69,9 @@ class Input extends Component {
 
         <label className={c('controlLabel', { 'hasValue': data.value })}>
           {data.props.placeholder}&nbsp;
-          {this.state.isPassword && <span className={c('formError')}>(Min 8 characters)&nbsp;</span>}
+          {this.state.isPassword && <span className={c('errorMessage')}>(Min 8 characters)&nbsp;</span>}
           {(this.props.validations && this.props.validations.includes('required')) &&
-            <span className={c('formError')}>*</span>
+            <span className={c('errorMessage')}>*</span>
           }
           &nbsp;{data.hint}
         </label>
