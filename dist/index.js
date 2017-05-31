@@ -2487,7 +2487,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          ref: 'node'
 	        }, data.props, {
 	          type: this.state.type,
-	          className: c('validateInput', 'textInput', { 'hasHint': true }),
+	          className: c('validateInput', 'textInput', { 'hasHint': data.hint }),
 	          checked: data.props.checked,
 	          value: data.value,
 	          onChange: this.handleChange,
@@ -3862,7 +3862,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        { className: c('relative', this.props.containerClassName) },
 	        _react2.default.createElement(_singleSelect2.default, _extends({}, data.props, {
 	          selectedValue: data.value,
-	          className: c({ 'formError': true }, 'selectBox', { 'hasLabel': !data.props.noLabel }),
+	          className: c({ 'formError': data.hint }, 'selectBox', { 'hasLabel': !data.props.noLabel }),
 	          onSelectItem: this.handleChange.bind(this) })),
 	        !data.props.noLabel && _react2.default.createElement(
 	          'label',

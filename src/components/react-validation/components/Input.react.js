@@ -61,7 +61,7 @@ class Input extends Component {
           ref='node'
           {...data.props}
           type={this.state.type}
-          className={c('validateInput', 'textInput', { 'hasHint' : true })}
+          className={c('validateInput', 'textInput', { 'hasHint' : data.hint })}
           checked={data.props.checked}
           value={data.value}
           onChange={this.handleChange}
