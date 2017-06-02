@@ -29,7 +29,7 @@ Object.assign(Validation.rules, {
     // Function to return hint
     // You may use current value to inject it in some way to the hint
     hint: value => {
-      return <span className={styles.formError}>Required</span>
+      return <span className={styles.errorMessage}>Required</span>
     }
   },
   email: {
@@ -38,7 +38,7 @@ Object.assign(Validation.rules, {
       return validator.isEmail(value.trim()) || value === ''
     },
     hint: value => {
-      return <span className={styles.formError}>Invalid Email format</span>
+      return <span className={styles.errorMessage}>Invalid Email format</span>
     }
 
     // rule: (value, component, form) => {
@@ -55,7 +55,7 @@ Object.assign(Validation.rules, {
     //   return email.value === emailConfirm.value;
     // },
     // hint: value => {
-    //   return <div className={styles.formError}>Email mismatch.</div>
+    //   return <div className={styles.errorMessage}>Email mismatch.</div>
     // }
 
   },
@@ -67,7 +67,7 @@ Object.assign(Validation.rules, {
       }
     },
     hint: value => {
-      return <span className={styles.formError}>Invalid Email format</span>
+      return <span className={styles.errorMessage}>Invalid Email format</span>
     }
 
     // rule: (value, component, form) => {
@@ -84,7 +84,7 @@ Object.assign(Validation.rules, {
     //   return email.value === emailConfirm.value;
     // },
     // hint: value => {
-    //   return <div className={styles.formError}>Email mismatch.</div>
+    //   return <div className={styles.errorMessage}>Email mismatch.</div>
     // }
   },
   // This example shows a way to handle common task - compare two fields for equality
@@ -110,7 +110,7 @@ Object.assign(Validation.rules, {
       return password.value === passwordConfirm.value
     },
     hint: value => {
-      return <span className={styles.formError}>Passwords mismatch</span>
+      return <span className={styles.errorMessage}>Passwords mismatch</span>
     }
   },
   length8: {
@@ -126,7 +126,7 @@ Object.assign(Validation.rules, {
       return (value.trim().length >= 3 && value.trim().length <= 500) || value === ''
     },
     hint: value => {
-      return <span className={styles.formError}>Length must be between 3 to 500 characters</span>
+      return <span className={styles.errorMessage}>Length must be between 3 to 500 characters</span>
     }
   },
   length3to250: {
@@ -134,7 +134,7 @@ Object.assign(Validation.rules, {
       return (value.trim().length >= 3 && value.trim().length <= 250) || value === ''
     },
     hint: value => {
-      return <span className={styles.formError}>Length must be between 3 to 500 characters</span>
+      return <span className={styles.errorMessage}>Length must be between 3 to 500 characters</span>
     }
   },
   length3to50: {
@@ -142,7 +142,7 @@ Object.assign(Validation.rules, {
       return (value.trim().length >= 3 && value.trim().length <= 50) || value === ''
     },
     hint: value => {
-      return <span className={styles.formError}>Length must be between 3 to 500 characters</span>
+      return <span className={styles.errorMessage}>Length must be between 3 to 500 characters</span>
     }
   },
   hasNumber: {
@@ -150,7 +150,7 @@ Object.assign(Validation.rules, {
       return /[0-9]/.test(value.trim()) || value === ''
     },
     hint: value => {
-      return <span className={styles.formError}>Must contains at least 1 number</span>
+      return <span className={styles.errorMessage}>Must contains at least 1 number</span>
     }
   },
   hasLowercase: {
@@ -158,7 +158,7 @@ Object.assign(Validation.rules, {
       return /[a-z]/.test(value.trim()) || value === ''
     },
     hint: value => {
-      return <span className={styles.formError}>Must contains at least 1 lowercase character</span>
+      return <span className={styles.errorMessage}>Must contains at least 1 lowercase character</span>
     }
   },
   hasUppercase: {
@@ -166,7 +166,7 @@ Object.assign(Validation.rules, {
       return /[A-Z]/.test(value.trim()) || value === ''
     },
     hint: value => {
-      return <span className={styles.formError}>Must contains at least 1 uppercase character</span>
+      return <span className={styles.errorMessage}>Must contains at least 1 uppercase character</span>
     }
   },
   phone: {
@@ -174,7 +174,7 @@ Object.assign(Validation.rules, {
       return value.length === 10 || value === ''
     },
     hint: value => {
-      return <span className={styles.formError}>Invalid Phone Number</span>
+      return <span className={styles.errorMessage}>Invalid Phone Number</span>
     }
   },
   ssn: {
@@ -196,7 +196,7 @@ Object.assign(Validation.rules, {
       return ssn.value === ssnConfirm.value
     },
     hint: value => {
-      return <span className={styles.formError}>SSN mismatch</span>
+      return <span className={styles.errorMessage}>SSN mismatch</span>
     }
   },
   ssnLength9: {
@@ -204,7 +204,7 @@ Object.assign(Validation.rules, {
       return value.trim().length >= 9 || value === ''
     },
     hint: value => {
-      return <span className={styles.formError}>SSN must have 9 digits</span>
+      return <span className={styles.errorMessage}>SSN must have 9 digits</span>
     }
   },
   monthyear: {
@@ -225,7 +225,7 @@ Object.assign(Validation.rules, {
       return month > 0 && month <= 12 && year > 0
     },
     hint: value => {
-      return <span className={styles.formError}>Wrong Format</span>
+      return <span className={styles.errorMessage}>Wrong Format</span>
     }
   },
   /// validate value in array duplicate
@@ -234,7 +234,7 @@ Object.assign(Validation.rules, {
       return (new Set(value)).size === value.length
     },
     hint: value => {
-      return <span className={styles.formError}>Duplicate items are not allowed</span>
+      return <span className={styles.errorMessage}>Duplicate items are not allowed</span>
     }
   },
   zipcode: {
@@ -242,7 +242,7 @@ Object.assign(Validation.rules, {
       return /^\d{5}$/.test(value.trim()) || value === ''
     },
     hint: value => {
-      return <span className={styles.formError}>Allow only 5 digit number</span>
+      return <span className={styles.errorMessage}>Allow only 5 digit number</span>
     }
   },
 
@@ -252,8 +252,8 @@ Object.assign(Validation.rules, {
     },
     hint: value => {
       let invalids = invalidChars(value, /^[a-zA-Z\s]+$/)
-      // return <span className={styles.formError}>Valid characters are <strong>A-Z a-z space</strong></span>
-      return <span className={styles.formError}>Character <strong>{invalids[0]}</strong> is invalid</span>
+      // return <span className={styles.errorMessage}>Valid characters are <strong>A-Z a-z space</strong></span>
+      return <span className={styles.errorMessage}>Character <strong>{invalids[0]}</strong> is invalid</span>
     }
   },
   transUnionAddress: {
@@ -262,8 +262,8 @@ Object.assign(Validation.rules, {
     },
     hint: value => {
       let invalids = invalidChars(value, /^[a-zA-Z0-9\s'\-.,()&#]+$/)
-      // return <span className={styles.formError}>Valid characters are <strong>A-Z a-z 0-9 space ' - . , () & #</strong></span>
-      return <span className={styles.formError}>Character <strong>{invalids[0]}</strong> is invalid</span>
+      // return <span className={styles.errorMessage}>Valid characters are <strong>A-Z a-z 0-9 space ' - . , () & #</strong></span>
+      return <span className={styles.errorMessage}>Character <strong>{invalids[0]}</strong> is invalid</span>
     }
   }
 })

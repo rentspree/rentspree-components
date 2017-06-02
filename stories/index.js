@@ -4,7 +4,8 @@ import { storiesOf, action } from '@kadira/storybook'
 import {
   Validation,
   SearchingBox,
-  SingleSelect
+  SingleSelect,
+  DateInputGroup
 } from '../src/index'
 
 storiesOf('Input', module)
@@ -144,8 +145,27 @@ storiesOf('Select', module)
     </Validation.components.Form>
   ))
 
-storiesOf('DatePick', module)
-  .add('Basic', () => (
+storiesOf('Date', module)
+  .add('InputGroup', () => (
+    <DateInputGroup
+      type='text'
+      value=''
+      name='date'
+      placeholder='Date'
+      validations={['required']}
+      dropdownMode='select' />
+  ))
+  .add('MonthYear', () => (
+    <Validation.components.Form>
+      <Validation.components.MonthYearInput
+        type='text'
+        value=''
+        name='monthyear'
+        placeholder='MM/YYYY'
+        validations={['required']}/>
+    </Validation.components.Form>
+  ))
+  .add('Picker', () => (
     <Validation.components.Form>
       <Validation.components.DatePick
         type='text'
@@ -156,7 +176,7 @@ storiesOf('DatePick', module)
         dropdownMode='select' />
     </Validation.components.Form>
   ))
-  .add('MonthYear', () => (
+  .add('Picker with Dropdown', () => (
     <Validation.components.Form>
       <Validation.components.DatePick
         type='text'

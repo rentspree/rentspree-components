@@ -23,7 +23,7 @@ class NumberInput extends Component {
 
     let {value} = this.refs.node
     if(('' + value).length > 0) {
-      this.setState({ hasValue: true, value: value.replace(/,|[A-z]/g, '') })
+      this.setState({ hasValue: true, value: value.replace(/[^0-9]+/g, '') })
     } else {
       this.setState({ hasValue: false, value: '' })
     }
@@ -35,7 +35,7 @@ class NumberInput extends Component {
 
   componentDidUpdate() {
     let {value} = this.refs.node
-    let modifiedValue = value.replace(/,|[A-z]/g, '')
+    let modifiedValue = value.replace(/[^0-9]+/g, '')
 
     if(this.state.value !== modifiedValue) {
       if (value.length > 0) {
@@ -55,8 +55,8 @@ class NumberInput extends Component {
           {...data.props}
           className={c('validateInput', 'textInput', { 'hasHint': data.hint })}
           checked={data.props.checked}
-          value={(!data.value || data.value === '') ? '' : numeral(data.value).format('0,0')}
-          maxLength={20}
+          value={(!data.value || data.value === '') ? '' : numeral(data.value).format(data.props.format || '0,0')}
+          maxLength={data.props.maxLength || 20}
           onChange={this.handleChange}
           onBlur={this.handleBlur} />
 
@@ -78,7 +78,7 @@ class NumberInput extends Component {
     let {value} = this.refs.node
     this.props.onChange && this.props.onChange(event, value)
     if(('' + value).length > 0) {
-      this.setState({ hasValue: true, value: value.replace(/,|[A-z]/g, '') })
+      this.setState({ hasValue: true, value: value.replace(/[^0-9]+/g, '') })
     } else {
       this.setState({ hasValue: false, value: '' })
     }
