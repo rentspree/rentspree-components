@@ -22,8 +22,10 @@ class MonthYearInput extends Component {
     this.props._validate (this)
 
     let {value} = this.refs.node
+    let modifiedValue = value.replace (/[^0-9]+/g, '')
+
     if (('' + value).length > 0) {
-      this.setState ({hasValue: true, value: value.replace (/[^0-9]+/g, '')})
+      this.setState ({hasValue: true, value: value})
     }
     else {
       this.setState ({hasValue: false, value: ''})
@@ -38,9 +40,9 @@ class MonthYearInput extends Component {
     let {value} = this.refs.node
     let modifiedValue = value.replace (/[^0-9]+/g, '')
 
-    if (this.state.value !== modifiedValue) {
+    if (this.state.value !== value) {
       if (value.length > 0) {
-        this.setState ({hasValue: true, value: modifiedValue})
+        this.setState ({hasValue: true, value: value})
       }
       else {
         this.setState ({hasValue: false, value: ''})
@@ -69,7 +71,6 @@ class MonthYearInput extends Component {
   render () {
     let data = getViewData (this.props)
     let formatDate = this.formatDate(data.value)
-
     return (
       <div className={c('relative', this.props.containerClassName)}>
         <input
@@ -97,9 +98,11 @@ class MonthYearInput extends Component {
     event.persist ()
 
     let {value} = this.refs.node
+    let modifiedValue = value.replace (/[^0-9]+/g, '')
+    
     this.props.onChange && this.props.onChange (event, value)
     if (('' + value).length > 0) {
-      this.setState ({hasValue: true, value: value.replace (/[^0-9]+/g, '')})
+      this.setState ({hasValue: true, value: value})
     }
     else {
       this.setState ({hasValue: false, value: ''})

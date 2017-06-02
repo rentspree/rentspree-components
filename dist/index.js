@@ -47162,9 +47162,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      var value = _this.refs.node.value;
 
+	      var modifiedValue = value.replace(/[^0-9]+/g, '');
+
 	      _this.props.onChange && _this.props.onChange(event, value);
 	      if (('' + value).length > 0) {
-	        _this.setState({ hasValue: true, value: value.replace(/[^0-9]+/g, '') });
+	        _this.setState({ hasValue: true, value: value });
 	      } else {
 	        _this.setState({ hasValue: false, value: '' });
 	      }
@@ -47191,8 +47193,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      var value = this.refs.node.value;
 
+	      var modifiedValue = value.replace(/[^0-9]+/g, '');
+
 	      if (('' + value).length > 0) {
-	        this.setState({ hasValue: true, value: value.replace(/[^0-9]+/g, '') });
+	        this.setState({ hasValue: true, value: value });
 	      } else {
 	        this.setState({ hasValue: false, value: '' });
 	      }
@@ -47209,9 +47213,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      var modifiedValue = value.replace(/[^0-9]+/g, '');
 
-	      if (this.state.value !== modifiedValue) {
+	      if (this.state.value !== value) {
 	        if (value.length > 0) {
-	          this.setState({ hasValue: true, value: modifiedValue });
+	          this.setState({ hasValue: true, value: value });
 	        } else {
 	          this.setState({ hasValue: false, value: '' });
 	        }
@@ -47243,7 +47247,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function render() {
 	      var data = (0, _getViewData2.default)(this.props);
 	      var formatDate = this.formatDate(data.value);
-
 	      return _react2.default.createElement(
 	        'div',
 	        { className: c('relative', this.props.containerClassName) },
