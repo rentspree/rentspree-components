@@ -151,9 +151,7 @@ storiesOf('Date', module)
       type='text'
       value=''
       name='date'
-      placeholder='Date'
-      validations={['required']}
-      dropdownMode='select' />
+      validations={['required']} />
   ))
   .add('MonthYear', () => (
     <Validation.components.Form>

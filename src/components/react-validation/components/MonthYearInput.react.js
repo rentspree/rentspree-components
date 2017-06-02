@@ -1,7 +1,5 @@
 import React, {Component, PropTypes} from 'react'
 import getViewData from './../helpers/get-view-data.js'
-import rules from './../rules.js'
-import numeral from 'numeral'
 import classnames from 'classnames/bind'
 import styles from '../form-validator.scss'
 

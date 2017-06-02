@@ -9,7 +9,11 @@
 
   .component {
     position: relative;
-    margin: 0 5px;
+    margin-right: 5px;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   .month {
