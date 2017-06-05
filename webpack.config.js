@@ -1,5 +1,4 @@
 var autoprefixer = require('autoprefixer')
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: "cheap-source-map",
@@ -9,9 +8,6 @@ module.exports = {
     sourceMapFilename: './dist/index.js.map',
     libraryTarget: 'umd'
   },
-  plugins: [
-    new ExtractTextPlugin('./dist/[name].css', {allChunks: true})
-  ],
   externals: [
     {
       react: {
@@ -59,11 +55,11 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css?modules&camelCase&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:6]!resolve-url!autoprefixer!sass?outputStyle=expanded') ,
+        loader: 'style!css?modules&camelCase&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:6]!resolve-url!autoprefixer!sass?outputStyle=expanded'
       },
       {
         test: /\.scss\?global$/,
-        loader: ExtractTextPlugin.extract('style', 'style!css?sourceMap!resolve-url!autoprefixer!sass?outputStyle=expanded') ,
+        loader: 'style!css?sourceMap!resolve-url!autoprefixer!sass?outputStyle=expanded'
       }
     ],
     resolve: {
