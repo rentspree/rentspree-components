@@ -1,12 +1,17 @@
 var autoprefixer = require('autoprefixer')
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
+  devtool: "cheap-source-map",
   entry: './src/index.js',
   output: {
     filename: './dist/index.js',
     sourceMapFilename: './dist/index.js.map',
     libraryTarget: 'umd'
   },
+  plugins: [
+    new ExtractTextPlugin('./dist/[name].css', {allChunks: true})
+  ],
   externals: [
     {
       react: {
@@ -14,16 +19,16 @@ module.exports = {
         commonjs2: 'react',
         commonjs: 'react',
         amd: 'react'
-      },
+      }
     },
     {
       'react-dom': {
         root: 'ReactDOM',
         commonjs2: 'react-dom',
         commonjs: 'react-dom',
-        amd: 'react-dom',
-      },
-    },
+        amd: 'react-dom'
+      }
+    }
   ],
   module: {
     loaders: [
@@ -54,11 +59,11 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'style!css?modules&camelCase&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:6]!resolve-url!autoprefixer!sass?outputStyle=expanded'
+        loader: ExtractTextPlugin.extract('style', 'css?modules&camelCase&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:6]!resolve-url!autoprefixer!sass?outputStyle=expanded') ,
       },
       {
         test: /\.scss\?global$/,
-        loader: 'style!css?sourceMap!resolve-url!autoprefixer!sass?outputStyle=expanded'
+        loader: ExtractTextPlugin.extract('style', 'style!css?sourceMap!resolve-url!autoprefixer!sass?outputStyle=expanded') ,
       }
     ],
     resolve: {

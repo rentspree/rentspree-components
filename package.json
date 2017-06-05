@@ -65,6 +65,7 @@
     "eslint-plugin-promise": "3.5.0",
     "eslint-plugin-react": "7.0.1",
     "eslint-plugin-standard": "3.0.1",
+    "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.11.1",
     "jest": "19.0.2",
     "json-loader": "^0.5.4",
