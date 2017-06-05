@@ -1,7 +1,4 @@
-var autoprefixer = require ('autoprefixer')
-var ExtractTextPlugin = require ('extract-text-webpack-plugin');
-var WebpackIsomorphicToolsPlugin = require ('webpack-isomorphic-tools/plugin');
-var webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin (require ('./webpack-isomorphic-tools'));
+var autoprefixer = require('autoprefixer')
 
 module.exports = {
   devtool: "cheap-source-map",
@@ -11,10 +8,6 @@ module.exports = {
     sourceMapFilename: './dist/index.js.map',
     libraryTarget: 'umd'
   },
-  plugins: [
-    new ExtractTextPlugin ('./dist/[name].css', {allChunks: true}),
-    webpackIsomorphicToolsPlugin
-  ],
   externals: [
     {
       react: {
@@ -39,7 +32,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-        query: require ('./config/babel.dev')
+        query: require('./config/babel.dev')
       },
       {
         test: /\.json$/,
@@ -53,10 +46,6 @@ module.exports = {
         }
       },
       {
-        test: webpackIsomorphicToolsPlugin.regular_expression ('images'),
-        loader: 'url-loader?limit=10240'
-      },
-      {
         test: /\.css$/,
         loader: 'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:6]!autoprefixer'
       },
@@ -66,11 +55,11 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract ('style', 'css?modules&camelCase&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:6]!resolve-url!autoprefixer!sass?outputStyle=expanded'),
+        loader: 'style!css?modules&camelCase&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:6]!resolve-url!autoprefixer!sass?outputStyle=expanded'
       },
       {
         test: /\.scss\?global$/,
-        loader: ExtractTextPlugin.extract ('style', 'style!css?sourceMap!resolve-url!autoprefixer!sass?outputStyle=expanded'),
+        loader: 'style!css?sourceMap!resolve-url!autoprefixer!sass?outputStyle=expanded'
       }
     ],
     resolve: {
