@@ -78,7 +78,8 @@
     "resolve-url-loader": "2.0.2",
     "sass-loader": "6.0.5",
     "style-loader": "^0.18.1",
-    "webpack": "1.15.0"
+    "webpack": "1.15.0",
+    "webpack-isomorphic-tools": "^3.0.2"
   },
   "jest": {
     "collectCoverageFrom": [
