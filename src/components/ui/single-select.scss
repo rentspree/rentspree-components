@@ -1,5 +1,31 @@
 @import '../../styles/variables';
 @import '../../styles/icons';
+@import '../../styles/textinput';
+
+.selectWrap {
+  position: relative;
+}
+
+.hasValue {
+  :global {
+    .Select-value-label {
+      line-height: 50px;
+    }
+  }
+}
+
+.hasLabel {
+  :global {
+    .Select-value-label {
+      top: 21px !important;
+      line-height: 20px !important;
+      padding-top: 0 !important;
+    }
+    .Select-placeholder {
+      display: none;
+    }
+  }
+}
 
 :global {
   .Select-control {

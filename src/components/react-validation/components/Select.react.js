@@ -60,6 +60,7 @@ class Select extends Component {
       <div className={c('relative', this.props.containerClassName)}>
         <SingleSelect
           {...data.props}
+          noLabel //This is to set noLabel in SingleSelect because we now have label below
           selectedValue={data.value}
           className={c({'formError': data.hint}, 'selectBox', {'hasLabel': !data.props.noLabel})}
           onSelectItem={this.handleChange.bind(this)}/>

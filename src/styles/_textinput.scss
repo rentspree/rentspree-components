@@ -69,11 +69,11 @@ textarea.textInput {
 
 .controlLabel {
   position: absolute;
+  color: $placeholder-grey;
   left: 11px;
   top: 16px;
   font-size: 1em;
   font-weight: 400;
-  opacity: 0.5;
   overflow: hidden;
   text-overflow: clip;
   white-space: nowrap;

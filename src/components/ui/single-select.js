@@ -1,6 +1,9 @@
 import React from 'react';
 import Select from 'react-select';
-import './single-select.scss'
+import classnames from 'classnames/bind'
+import styles from './single-select.scss'
+
+const c = classnames.bind(styles)
 
 export default class SingleSelect extends React.Component {
 
@@ -8,7 +11,7 @@ export default class SingleSelect extends React.Component {
     super(props);
 
     this.state = {
-      currentValue: null
+      currentValue: props.selectedValue
     };
   }
 
@@ -30,15 +33,23 @@ export default class SingleSelect extends React.Component {
     })[0];
 
     return (
-      <Select
-        name={this.props.name || "form-field-name"}
-        value={selectedOption}
-        clearable={this.props.clearable || false}
-        searchable={this.props.searchable || false}
-        disabled={this.props.disabled || false}
-        onChange={this.handleChange}
-        {...otherProps}
-      />
+      <div className={c('selectWrap')}>
+        <Select
+          name={this.props.name || "form-field-name"}
+          value={selectedOption}
+          clearable={this.props.clearable || false}
+          searchable={this.props.searchable || false}
+          disabled={this.props.disabled || false}
+          onChange={this.handleChange}
+          className={c({'hasValue': selectedOption}, {'hasLabel': !this.props.noLabel})}
+          {...otherProps}
+        />
+        {!this.props.noLabel &&
+          <label className={c('controlLabel', {'hasValue': this.state.currentValue})}>
+            {this.props.placeholder}&nbsp;
+          </label>
+        }
+      </div>
     );
   }
 }

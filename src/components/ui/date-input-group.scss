@@ -1,6 +1,21 @@
 @import '../../styles/variables';
 @import '../../styles/flex';
 
+.dateLabel {
+  font-size: 1.1em;
+  margin-bottom: 8px;
+
+  .title {
+    font-weight: bold;
+    margin-right: 8px;
+  }
+
+  .errorMessage {
+    font-size: 0.9em;
+    color: $rentspree-negative-red;
+  }
+}
+
 .dateInput {
   position: relative;
   @include flexbox;
@@ -9,7 +24,7 @@
 
   .component {
     position: relative;
-    margin-right: 5px;
+    margin-right: 10px;
 
     &:last-child {
       margin-right: 0;
