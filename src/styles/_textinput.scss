@@ -155,9 +155,8 @@ textarea:focus {
   .tagsInput {
     cursor: text;
     border-radius: 5px;
-    min-height: 100px;
+    height: 100px;
     height: auto !important;
-    max-height: 160px;
     overflow-y: auto;
     border: 1px solid $line-grey;
     padding: 25px 10px 5px;
