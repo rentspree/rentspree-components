@@ -13,7 +13,7 @@ export default class SearchingBox extends Component {
 
     this.state = {
       value: props.initialValue,
-      placeholder: props.initialValue,
+      placeholder: props.placeholder,
       suggestions: []
     };
 
