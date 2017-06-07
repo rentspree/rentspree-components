@@ -1,6 +1,6 @@
 {
   "name": "rentspree-components",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "Shared components for Rentspree projects",
   "main": "dist/index.js",
   "scripts": {
@@ -19,17 +19,17 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "2.2.5",
-    "googlemaps": "^1.12.0",
+    "googlemaps": "1.12.0",
     "lodash": "4.17.4",
-    "moment": "^2.18.1",
+    "moment": "2.18.1",
     "numeral": "2.0.6",
     "react": "15.4.1",
-    "react-autosuggest": "^3.8.0",
+    "react-autosuggest": "3.8.0",
     "react-bootstrap": "0.31.0",
-    "react-datepicker": "^0.30.0",
+    "react-datepicker": "0.30.0",
     "react-dom": "15.4.1",
     "react-phone-number-input": "0.4.1",
-    "react-select": "1.0.0-rc.4",
+    "react-select": "1.0.0-rc.2",
     "react-tagsinput": "3.16.1",
     "validator": "7.0.0"
   },
@@ -65,19 +65,21 @@
     "eslint-plugin-promise": "3.5.0",
     "eslint-plugin-react": "7.0.1",
     "eslint-plugin-standard": "3.0.1",
-    "file-loader": "^0.11.1",
+    "extract-text-webpack-plugin": "1.0.1",
+    "file-loader": "0.11.1",
     "jest": "19.0.2",
-    "json-loader": "^0.5.4",
+    "json-loader": "0.5.4",
     "node-sass": "4.5.3",
-    "promise": "^7.1.1",
+    "promise": "7.1.1",
     "raw-loader": "0.5.1",
     "react-hot-loader": "3.0.0-beta.3",
     "react-test-renderer": "15.4.2",
     "resolve-url": "0.2.1",
     "resolve-url-loader": "2.0.2",
     "sass-loader": "6.0.5",
-    "style-loader": "^0.18.1",
-    "webpack": "1.15.0"
+    "style-loader": "0.18.1",
+    "webpack": "1.15.0",
+    "webpack-isomorphic-tools": "3.0.2"
   },
   "jest": {
     "collectCoverageFrom": [

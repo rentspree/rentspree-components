@@ -1,6 +1,7 @@
 var autoprefixer = require('autoprefixer')
 
 module.exports = {
+  devtool: "cheap-source-map",
   entry: './src/index.js',
   output: {
     filename: './dist/index.js',
@@ -14,16 +15,16 @@ module.exports = {
         commonjs2: 'react',
         commonjs: 'react',
         amd: 'react'
-      },
+      }
     },
     {
       'react-dom': {
         root: 'ReactDOM',
         commonjs2: 'react-dom',
         commonjs: 'react-dom',
-        amd: 'react-dom',
-      },
-    },
+        amd: 'react-dom'
+      }
+    }
   ],
   module: {
     loaders: [

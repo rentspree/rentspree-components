@@ -107,7 +107,7 @@ class Form extends Component {
     return error
   }
 
-  _clone (children) {
+   _clone (children) {
     return React.Children.map (children, child => {
       if (typeof child !== 'object') {
         return child
@@ -122,7 +122,6 @@ class Form extends Component {
         //   this._extendProps (props)
         // }
       }
-
       props.children = this._clone (child.props.children)
 
       return React.cloneElement (child, props)
@@ -173,9 +172,11 @@ class Form extends Component {
   }
 
   render () {
-    return <form {...this.props}>
-      {this._clone (this.props.children)}
-    </form>
+    return (
+      <form {...this.props}>
+        {this._clone (this.props.children)}
+      </form>
+    )
   }
 }
 

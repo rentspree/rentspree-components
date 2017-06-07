@@ -10,7 +10,11 @@
 .selectBox {
 
   &.formError {
-    border: 1px solid $rentspree-negative-red;
+    :global {
+      .Select-control {
+        border: 1px solid $rentspree-negative-red;
+      }
+    }
   }
 
   &.hasLabel {
@@ -91,7 +95,7 @@
   }
 }
 
-.formError { // Hint Color
+.errorMessage { // Hint Color
   color: $rentspree-negative-red;
   margin-top: 5px;
   text-align: left;

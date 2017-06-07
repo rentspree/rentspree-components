@@ -1,12 +1,38 @@
 @import '../../styles/variables';
 @import '../../styles/icons';
+@import '../../styles/textinput';
+
+.selectWrap {
+  position: relative;
+}
+
+.hasValue {
+  :global {
+    .Select-value-label {
+      line-height: 50px;
+    }
+  }
+}
+
+.hasLabel {
+  :global {
+    .Select-value-label {
+      top: 21px !important;
+      line-height: 20px !important;
+      padding-top: 0 !important;
+    }
+    .Select-placeholder {
+      display: none;
+    }
+  }
+}
 
 :global {
   .Select-control {
     position: relative;
     border: 1px solid $line-grey;
     background-color: transparent;
-    height: 48px; //border at parent will expand this to 50px
+    height: 50px; //border at parent will expand this to 50px
     box-shadow: none !important;
     @include border-radius(5px);
     @include transition(border-color, $anim);
@@ -16,13 +42,13 @@
 
       .Select-value-label {
         position: absolute;
-        left: 11px;
+        left: 10px;
         color: #777 !important;
       }
     }
   }
   .Select-placeholder, .Select-input, .Select--single > .Select-control .Select-value {
-    line-height: 48px;
+    line-height: 50px;
     text-align: left;
     //line-height: 40px !important;
     padding-left: 15px;
@@ -39,6 +65,8 @@
     float: left;
 
     input {
+      font-family: 'Lato';
+      font-size: 1em;
       border: none;
       background-color: transparent;
       position: relative;
@@ -112,6 +140,12 @@
   }
   .Select-option.is-selected {
     background-color: rgba($rentspree-light-blue, 0.75);
+  }
+  .Select-noresults {
+    padding: 10px 15px;
+    background-color: transparent;
+    color: $placeholder-grey;
+    text-align: left;
   }
 
   //Tags

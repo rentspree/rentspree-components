@@ -76,7 +76,7 @@ class Tags extends Component {
         <label className={c('controlLabel', 'label-tag', {'hasValue': data.value && data.value.length > 0 })} style={{left: 10}} id="tagInput">
           {data.props.placeholder}&nbsp;
           {(this.props.validations && this.props.validations.includes('required')) &&
-            <span className={c('formError')}>*</span>
+            <span className={c('errorMessage')}>*</span>
           }
           &nbsp;{data.hint}
         </label>

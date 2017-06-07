@@ -69,9 +69,9 @@ class Input extends Component {
 
         <label className={c('controlLabel', { 'hasValue': data.value })}>
           {data.props.placeholder}&nbsp;
-          {this.state.isPassword && <span className={c('formError')}>(Min 8 characters)&nbsp;</span>}
+          {this.state.isPassword && <span className={c('errorMessage')}>(Min 8 characters)&nbsp;</span>}
           {(this.props.validations && this.props.validations.includes('required')) &&
-            <span className={c('formError')}>*</span>
+            <span className={c('errorMessage')}>*</span>
           }
           &nbsp;{data.hint}
         </label>

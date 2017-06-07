@@ -19,13 +19,16 @@
 }
 
 textarea.textInput {
+  font-family: 'Lato';
+  font-size: 1em;
   min-height: 80px;
   padding: 25px 10px 0;
   max-width: 100%;
 }
 
 .textInput {
-  //smargin-bottom: 30px;
+  font-family: 'Lato';
+  font-size: 1em;
   width: 100%;
   //max-width: 650px;
   height: 50px;
@@ -66,11 +69,11 @@ textarea.textInput {
 
 .controlLabel {
   position: absolute;
+  color: $placeholder-grey;
   left: 11px;
   top: 16px;
   font-size: 1em;
   font-weight: 400;
-  opacity: 0.5;
   overflow: hidden;
   text-overflow: clip;
   white-space: nowrap;
@@ -152,9 +155,7 @@ textarea:focus {
   .tagsInput {
     cursor: text;
     border-radius: 5px;
-    min-height: 100px;
-    height: auto !important;
-    max-height: 160px;
+    height: 100px !important;
     overflow-y: auto;
     border: 1px solid $line-grey;
     padding: 25px 10px 5px;
