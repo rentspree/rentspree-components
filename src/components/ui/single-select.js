@@ -41,13 +41,13 @@ export default class SingleSelect extends React.Component {
           searchable={this.props.searchable || false}
           disabled={this.props.disabled || false}
           onChange={this.handleChange}
-          className={c({'hasValue': selectedOption}, {'hasLabel': !this.props.noLabel})}
+          className={c({'hasValue': selectedOption}, {'hasLabel': !this.props.noLabel}, {'hasError': this.props.hasError})}
           {...otherProps}
         />
         {!this.props.noLabel &&
-          <label className={c('controlLabel', {'hasValue': this.state.currentValue})}>
-            {this.props.placeholder}&nbsp;
-          </label>
+        <label className={c('controlLabel', {'hasValue': selectedOption})}>
+          {this.props.placeholder}&nbsp;
+        </label>
         }
       </div>
     );
