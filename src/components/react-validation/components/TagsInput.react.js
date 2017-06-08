@@ -80,6 +80,7 @@ class Tags extends Component {
           }
           &nbsp;{data.hint}
         </label>
+        <div className={c('topLabelBg')}/>
       </div>
     )
   }
