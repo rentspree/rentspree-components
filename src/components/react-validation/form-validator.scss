@@ -16,6 +16,7 @@
   width: 99%;
   height: 25px;
   display: none;
+  z-index: 2;
   &.hasValue {
     display: block;
   }
