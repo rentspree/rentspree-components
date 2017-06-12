@@ -27,6 +27,14 @@
   }
 }
 
+.hasError {
+  :global {
+    .Select-control {
+      border: 1px solid $rentspree-negative-red;
+    }
+  }
+}
+
 :global {
   .Select-control {
     position: relative;
@@ -55,6 +63,7 @@
     padding-left: 15px;
     padding-right: 15px;
     font-weight: 400;
+
   }
 
   .Select-placeholder {

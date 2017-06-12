@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react'
+import {Row, Col, FormGroup} from 'react-bootstrap'
 import Validation from '../react-validation/form-validator'
 import SingleSelect from './single-select'
 import moment from 'moment'
@@ -79,6 +80,7 @@ const months = [
     value: '12'
   }
 ]
+const rules = Validation.rules;
 
 export default class DateInputGroup extends Component {
   years = []
@@ -86,15 +88,16 @@ export default class DateInputGroup extends Component {
   constructor (props) {
     super (props)
 
-    let startYear = props.startYear || 1950, endYear = props.endYear || moment().year();
-    for(var i = startYear; i <= endYear; i++) {
-      this.years.push({label: '' + i, value: '' + i})
+    let startYear = props.startYear || 1950, endYear = props.endYear || moment ().year ();
+    for (var i = startYear; i <= endYear; i++) {
+      this.years.push ({label: '' + i, value: '' + i})
     }
     this.state = {
       date: props.value ? '' + props.value.date () : '',
-      month: props.value ? '' + props.value.add('month', 1).month ()  : '',
+      month: props.value ? '' + props.value.add ('month', 1).month () : '',
       year: props.value ? '' + props.value.year () : '',
-      value: props.value || null
+      value: props.value || null,
+      error: null
     }
   }
 
@@ -108,14 +111,34 @@ export default class DateInputGroup extends Component {
     this.setState ({year: e.value || ''}, this.digest)
   }
 
+  validate (value) {
+    try {
+      this.props.validations.forEach ((validation, index) => {
+        this.setState ({error: !rules[validation].rule (value) ? rules[validation].hint () : null})
+        if (!rules[validation].rule (value)) {
+          throw 400;
+        }
+      })
+    } catch (e) {
+      return false
+    }
+
+    return true;
+  }
+
   digest () {
-    if (this.state.date && this.state.month && this.state.year) {
-      let value = moment.utc (this.state.year + '-' +
+    let value = null
+    if (this.state.date && !isNaN (this.state.date) &&
+      this.state.month && !isNaN (this.state.month) &&
+      this.state.year && !isNaN (this.state.year)) {
+      value = moment.utc (this.state.year + '-' +
         (this.state.month >= 10 ? this.state.month : '0' + this.state.month) + '-' +
         (this.state.date >= 10 ? this.state.date : '0' + this.state.date))
-      this.setState ({value: value})
-      this.props.onChange && this.props.onChange(value)
     }
+
+    this.validate (value)
+    this.setState ({value: value})
+    this.props.onChange && this.props.onChange (value)
   }
 
   render () {
@@ -123,37 +146,46 @@ export default class DateInputGroup extends Component {
       <div>
         <div className={c('dateLabel')}>
           <span className={c('title')}>{this.props.label}</span>
-          <span className={c('errorMessage')}>{this.props.error}</span>
+          {this.state.error}
         </div>
-        <div className={c('dateInput')}>
-          <span className={c('component', 'month')}>
-            <SingleSelect
-              options={months}
-              searchable
-              selectedValue={this.state.month || ''}
-              name='month'
-              placeholder='Month'
-              onSelectItem={ this.handleMonthSelected }/>
-          </span>
-          <span className={c('component', 'date')}>
-            <SingleSelect
-              options={dates}
-              searchable
-              selectedValue={this.state.date || ''}
-              name='date'
-              placeholder='Date'
-              onSelectItem={ this.handleDateSelected }/>
-          </span>
-          <span className={c('component', 'year')}>
-            <SingleSelect
-              options={this.years}
-              searchable
-              selectedValue={this.state.year || ''}
-              name='year'
-              placeholder='Year'
-              onSelectItem={ this.handleYearSelected }/>
-          </span>
-        </div>
+        <Row>
+          <Col xs={12} sm={4}>
+            <FormGroup>
+              <SingleSelect
+                hasError={this.state.error}
+                options={months}
+                searchable
+                selectedValue={this.state.month && !isNaN(this.state.month) ? this.state.month : ''}
+                name='month'
+                placeholder='Month'
+                onSelectItem={ this.handleMonthSelected }/>
+            </FormGroup>
+          </Col>
+          <Col xs={12} sm={4}>
+            <FormGroup>
+              <SingleSelect
+                hasError={this.state.error}
+                options={dates}
+                searchable
+                selectedValue={this.state.date && !isNaN(this.state.date) ? this.state.date : ''}
+                name='date'
+                placeholder='Date'
+                onSelectItem={ this.handleDateSelected }/>
+            </FormGroup>
+          </Col>
+          <Col xs={12} sm={4}>
+            <FormGroup>
+              <SingleSelect
+                hasError={this.state.error}
+                options={this.years}
+                searchable
+                selectedValue={this.state.year && !isNaN(this.state.year) ? this.state.year : ''}
+                name='year'
+                placeholder='Year'
+                onSelectItem={ this.handleYearSelected }/>
+            </FormGroup>
+          </Col>
+        </Row>
       </div>
     )
   }

@@ -28,11 +28,23 @@ class DatePick extends Component {
     }
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if(!prevProps.value.isSame(this.props.value)) {
-  //     this.setState({ hasValue: true, value: this.props.value })
-  //   }
-  // } Used to fixed Datepicker Redefault bug in Movein date rental form but have better way now
+  componentDidUpdate (prevProps, prevState) {
+    //   if(!prevProps.value.isSame(this.props.value)) {
+    //     this.setState({ hasValue: true, value: this.props.value })
+    //   }  Used to fixed Datepicker Redefault bug in Movein date rental form but have better way now
+
+    let {value} = this.props
+    if (this.state.value !== value) {
+      if (value) {
+        if (this.props.isPullValue) {
+          this.props._update (this, value)
+        }
+        this.setState ({hasValue: true, value: value})
+      } else {
+        this.setState({ hasValue: false, value: null })
+      }
+    }
+  }
 
   componentWillUnmount () {
     this.props._unregister(this)
@@ -40,6 +52,11 @@ class DatePick extends Component {
 
   render () {
     let data = getViewData(this.props)
+
+    if (data.props.isPullValue) {
+      delete data.props.isPullValue
+    }
+
     return (
       <div className={c('relative', this.props.containerClassName)}>
         <DatePicker
@@ -55,7 +72,7 @@ class DatePick extends Component {
         <label className={c('controlLabel', { 'hasValue': data.value })}>
           {data.props.placeholder}&nbsp;
           {(this.props.validations && this.props.validations.includes('required')) &&
-            <span className={c('errorMessage')}>*</span>
+          <span className={c('errorMessage')}>*</span>
           }
           &nbsp;{data.hint}
         </label>
@@ -86,9 +103,9 @@ class DatePick extends Component {
 
 DatePick.propTypes = {
   validations: PropTypes.array.isRequired,
-  value: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  value: PropTypes.object,
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,

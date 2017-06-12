@@ -30,9 +30,7 @@ class Button extends Component {
         this.props.validate(item)
       })
     }
-    else {
-      this.props.onClick && this.props.onClick()
-    }
+    this.props.onClick && this.props.onClick();
   }
 }
 
