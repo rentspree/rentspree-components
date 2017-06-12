@@ -78,7 +78,6 @@ textarea.textInput {
   text-overflow: clip;
   white-space: nowrap;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, color 0.3s ease-in-out, font-size 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  z-index: 2;
 }
 
 .controlLabel.hasValue {
@@ -160,7 +159,6 @@ textarea:focus {
     overflow-y: auto;
     border: 1px solid $line-grey;
     padding: 25px 10px 5px;
-
     ~ .controlLabel {
 
       .label-tag {
