@@ -311,6 +311,7 @@ Object.assign(Validation.rules, {
       } else {
         return value === ''
       }
+      console.log(month, date, year)
       return date > 0 && date <= 31 && month > 0 && month <= 12 && year > 0
     },
 
@@ -325,7 +326,6 @@ Object.assign(Validation.rules, {
 
       if (value) {
         if (value.trim().length === 7 && value.indexOf('/') === 2) {
-          console.log(value.trim().length, value.indexOf('/'))
           if (/^[0-9]*$/.test(value.substring(0, 2))) {
             month = numeral(value.substring(0, 2));
           }
@@ -338,7 +338,7 @@ Object.assign(Validation.rules, {
       } else {
         return value === ''
       }
-      console.log(month, year, month > 0, year > 0)
+      console.log(month, year)
       return month > 0 && month <= 12 && year > 0;
     },
 

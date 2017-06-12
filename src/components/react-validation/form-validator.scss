@@ -16,14 +16,9 @@
   width: 99%;
   height: 25px;
   display: none;
+  z-index: 2;
   &.hasValue {
     display: block;
-    ~ .controlLabel {
-      z-index: initial;
-    }
-  }
-  ~ .controlLabel {
-    z-index: -1;
   }
 }
 
