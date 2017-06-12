@@ -254,7 +254,27 @@ storiesOf('Select', module)
   ))
 
 storiesOf('Date', module)
-  .add('InputGroup', () => (
+  .add('DateInput', () => (
+    <Validation.components.Form>
+      <Validation.components.DateInput
+        type='text'
+        value=''
+        name='date'
+        placeholder='MM/DD/YYYY'
+        validations={['required', 'monthdateyear']}/>
+    </Validation.components.Form>
+  ))
+  .add('MonthYearInput', () => (
+    <Validation.components.Form>
+      <Validation.components.MonthYearInput
+        type='text'
+        value=''
+        name='monthyear'
+        placeholder='MM/YYYY'
+        validations={['required', 'monthyear']}/>
+    </Validation.components.Form>
+  ))
+  .add('DateInputGroup', () => (
     <DateInputGroup
       type='text'
       value=''
@@ -262,16 +282,6 @@ storiesOf('Date', module)
       label='Date input group'
       error='Error msg'
       validations={['required']} />
-  ))
-  .add('MonthYear', () => (
-    <Validation.components.Form>
-      <Validation.components.MonthYearInput
-        type='text'
-        value=''
-        name='monthyear'
-        placeholder='MM/YYYY'
-        validations={['required']}/>
-    </Validation.components.Form>
   ))
   .add('Picker', () => (
     <Validation.components.Form>

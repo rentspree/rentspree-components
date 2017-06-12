@@ -288,13 +288,44 @@ Object.assign(Validation.rules, {
       return <span className={styles.errorMessage}>SSN must have 9 digits</span>
     }
   },
+  monthdateyear: {
+    rule: value => {
+      let date = 0
+      let month = 0
+      let year = 0
+
+      if (value) {
+        if (value.trim().length === 10 && value.indexOf('/') === 2 && value.lastIndexOf('/') === 5) {
+          if (/^[0-9]*$/.test(value.substring(0, 2))) {
+            month = numeral(value.substring(0, 2));
+          }
+          if (/^[0-9]*$/.test(value.substring(3, 5))) {
+            date = numeral(value.substring(3, 5));
+          }
+          if (/^[0-9]*$/.test(value.substring(6))) {
+            year = numeral(value.substring(6));
+          }
+        } else {
+          return false;
+        }
+      } else {
+        return value === ''
+      }
+      return date > 0 && date <= 31 && month > 0 && month <= 12 && year > 0
+    },
+
+    hint: value => {
+      return <span className={styles.errorMessage}>Wrong format</span>
+    }
+  },
   monthyear: {
     rule: value => {
-      let month = 0;
-      let year = 0;
+      let month = 0
+      let year = 0
 
       if (value) {
         if (value.trim().length === 7 && value.indexOf('/') === 2) {
+          console.log(value.trim().length, value.indexOf('/'))
           if (/^[0-9]*$/.test(value.substring(0, 2))) {
             month = numeral(value.substring(0, 2));
           }
@@ -307,6 +338,7 @@ Object.assign(Validation.rules, {
       } else {
         return value === ''
       }
+      console.log(month, year, month > 0, year > 0)
       return month > 0 && month <= 12 && year > 0;
     },
 
