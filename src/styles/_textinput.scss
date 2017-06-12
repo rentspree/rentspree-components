@@ -159,6 +159,8 @@ textarea:focus {
     overflow-y: auto;
     border: 1px solid $line-grey;
     padding: 25px 10px 5px;
+    position: relative;
+    z-index: 2;
     ~ .controlLabel {
 
       .label-tag {

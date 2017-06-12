@@ -18,12 +18,6 @@
   display: none;
   &.hasValue {
     display: block;
-    ~ .controlLabel {
-      z-index: initial;
-    }
-  }
-  ~ .controlLabel {
-    z-index: -1;
   }
 }
 
