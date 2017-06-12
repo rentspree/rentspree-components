@@ -309,5 +309,5 @@ storiesOf('Button', module)
 
 storiesOf('Search', module)
   .add('Address', () => (
-    <SearchingBox onSelected={()=> console.log('Search')} />
+    <SearchingBox onSelected={()=> console.log('Search')} placeholder='Address' />
   ))

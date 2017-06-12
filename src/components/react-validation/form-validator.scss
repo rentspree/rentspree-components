@@ -7,6 +7,26 @@
   margin-bottom: 10px;
 }
 
+.topLabelBg {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  border-radius: 5px;
+  background: white;
+  width: 99%;
+  height: 25px;
+  display: none;
+  &.hasValue {
+    display: block;
+    ~ .controlLabel {
+      z-index: initial;
+    }
+  }
+  ~ .controlLabel {
+    z-index: -1;
+  }
+}
+
 .selectBox {
 
   &.formError {
@@ -63,7 +83,7 @@
 
 .buttonError:hover {
   background-color: $rentspree-negative-red !important;
-  animation: shake $anim cubic-bezier(.36,.07,.19,.97) both;
+  animation: shake $anim cubic-bezier(.36, .07, .19, .97) both;
   transform: translate3d(0, 0, 0);
 }
 
@@ -85,7 +105,7 @@
   }
 }
 
-.validateInput {// Border Color
+.validateInput { // Border Color
   transition: border-color 0.2s;
   &.hasHint {
     border-color: $rentspree-negative-red;
