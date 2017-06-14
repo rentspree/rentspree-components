@@ -57,11 +57,10 @@ class DateInput extends Component {
       output = cleanString.substr (0, 8), // Limit to 8 digits
       size = dateString.length;
 
-    if (size > 4)
-      output = this.insertString (output, '/', 4);
-
     if (size > 2)
       output = this.insertString (output, '/', 2);
+    if (size > 5)
+      output = this.insertString (output, '/', 5);
 
     return output;
   }
@@ -77,13 +76,14 @@ class DateInput extends Component {
           className={c('validateInput', 'textInput', { 'hasHint': data.hint })}
           checked={data.props.checked}
           value={(!formatDate || formatDate === '') ? '' : formatDate}
+          maxLength={10}
           onChange={this.handleChange}
           onBlur={this.handleBlur}/>
 
         <label className={c('controlLabel', { 'hasValue': data.value })}>
           {data.props.placeholder}&nbsp;
           {(this.props.validations && this.props.validations.includes ('required')) &&
-            <span className={c('errorMessage')}>*</span>
+          <span className={c('errorMessage')}>*</span>
           }
           &nbsp;{data.hint}
         </label>
