@@ -33,7 +33,7 @@
     background-color: transparent;
     height: 50px; //border at parent will expand this to 50px
     box-shadow: none !important;
-    overflow: hidden;
+    //overflow: hidden;
     @include border-radius(5px);
     @include transition(border-color, $anim);
 
@@ -52,6 +52,7 @@
     padding-left: 10px;
     padding-right: 10px;
     font-weight: 400;
+    overflow: hidden;
   }
 
   .Select-placeholder {
