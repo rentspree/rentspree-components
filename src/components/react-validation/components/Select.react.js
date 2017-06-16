@@ -51,6 +51,7 @@ class Select extends Component {
 
   render () {
     let data = getViewData (this.props)
+    let propsClass = this.props.className || ''
 
     if (data.props.isPullValue) {
       delete data.props.isPullValue
@@ -62,7 +63,7 @@ class Select extends Component {
           {...data.props}
           noLabel //This is to set noLabel in SingleSelect because we now have label below
           selectedValue={data.value}
-          className={c({'formError': data.hint}, 'selectBox', {'hasLabel': !data.props.noLabel})}
+          className={propsClass, c({'formError': data.hint}, 'selectBox', {'hasLabel': !data.props.noLabel})}
           onSelectItem={this.handleChange.bind(this)}/>
 
         {!data.props.noLabel &&
