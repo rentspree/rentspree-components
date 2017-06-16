@@ -44,7 +44,9 @@
     }
   }
   .Select-placeholder, .Select-input, .Select--single > .Select-control .Select-value {
+    position: absolute;
     line-height: 48px;
+    height: 48px;
     text-align: left;
     //line-height: 40px !important;
     padding-left: 10px;
@@ -58,7 +60,7 @@
 
   .Select-input {
     //line-height: 20px;
-    float: left;
+    //float: left;
 
     input {
       font-family: 'Lato';
