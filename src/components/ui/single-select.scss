@@ -71,7 +71,7 @@
   }
 
   .Select-input {
-    line-height: 20px;
+    //line-height: 20px;
     float: left;
 
     input {
@@ -80,8 +80,8 @@
       border: none;
       background-color: transparent;
       position: relative;
-      top: 20px;
-      left: -6px;
+      top: 5px;
+      //left: -6px;
       color: $title-black;
 
       &:focus {

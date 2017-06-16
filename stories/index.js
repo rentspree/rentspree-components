@@ -253,6 +253,50 @@ storiesOf('Select', module)
         validations={['required']} />
     </Validation.components.Form>
   ))
+  .add('Validation + Search + noLabel', () => (
+    <Validation.components.Form>
+      <Validation.components.Select
+        options={[
+          {
+            label: 'one',
+            value: 'one'
+          }, {
+            label: 'two',
+            value: 'two'
+          }, {
+            label: 'three',
+            value: 'three'
+          }
+        ]}
+        onSelectItem={ action('selected') }
+        searchable noLabel
+        value=''
+        name='select' placeholder='Select'
+        validations={['required']} />
+    </Validation.components.Form>
+  ))
+  .add('Validation val + Search + noLabel', () => (
+    <Validation.components.Form>
+      <Validation.components.Select
+        options={[
+          {
+            label: 'one',
+            value: 'one'
+          }, {
+            label: 'two',
+            value: 'two'
+          }, {
+            label: 'three',
+            value: 'three'
+          }
+        ]}
+        onSelectItem={ action('selected') }
+        searchable noLabel
+        value='one'
+        name='select' placeholder='Select'
+        validations={['required']} />
+    </Validation.components.Form>
+  ))
 
 storiesOf('Date', module)
   .add('DateInput', () => (

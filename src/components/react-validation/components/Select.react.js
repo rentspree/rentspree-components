@@ -12,7 +12,8 @@ class Select extends Component {
     super(props)
     this.state = {
       hasValue: false,
-      value: props.value
+      value: props.value,
+      onFocus: false
     }
 
     this.props._register(this)
@@ -63,10 +64,13 @@ class Select extends Component {
           noLabel // This is to set noLabel in SingleSelect because we now have label below
           selectedValue={data.value}
           className={c({'formError': data.hint}, 'selectBox', {'hasLabel': !data.props.noLabel})}
-          onSelectItem={this.handleChange.bind(this)}/>
+          onSelectItem={this.handleChange.bind(this)}
+          onFocus={() => this.setState({onFocus: true})}
+          onBlur={() => this.setState({onFocus: false})}
+        />
 
         {!data.props.noLabel &&
-        <label className={c('controlLabel', {'hasValue': data.value})}>
+        <label className={c('controlLabel', {'hasValue': data.value || this.state.onFocus})}>
           {data.props.placeholder}&nbsp;
           {this.props.validations && this.props.validations.includes('required') &&
           <span className={c('errorMessage')}>*</span>}
