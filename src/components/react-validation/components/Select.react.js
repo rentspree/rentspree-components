@@ -95,7 +95,7 @@ class Select extends Component {
 Select.propTypes = {
   validations: PropTypes.array.isRequired,
   options: PropTypes.array.isRequired,
-  value: PropTypes.string.isRequired,
+  // value: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   onSelectItem: PropTypes.func,

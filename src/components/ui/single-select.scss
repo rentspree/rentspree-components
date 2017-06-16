@@ -6,20 +6,11 @@
   position: relative;
 }
 
-.hasValue {
-  :global {
-    .Select-value-label {
-      line-height: 50px;
-    }
-  }
-}
-
 .hasLabel {
   :global {
     .Select-value-label {
-      top: 21px !important;
-      line-height: 20px !important;
-      padding-top: 0 !important;
+      position: relative;
+      top: 6px;
     }
     .Select-placeholder {
       display: none;
@@ -47,11 +38,7 @@
     @include transition(border-color, $anim);
 
     .Select-value {
-      padding-left: 0 !important;
-
       .Select-value-label {
-        position: absolute;
-        left: 10px;
         color: #777 !important;
       }
     }
@@ -63,7 +50,6 @@
     padding-left: 10px;
     padding-right: 10px;
     font-weight: 400;
-
   }
 
   .Select-placeholder {

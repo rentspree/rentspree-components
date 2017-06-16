@@ -35,8 +35,8 @@
   &.hasLabel {
     :global {
       .Select-value-label {
-        top: 21px !important;
-        line-height: 20px !important;
+        position: relative;
+        top: 6px;
       }
       .Select-placeholder {
         display: none;
