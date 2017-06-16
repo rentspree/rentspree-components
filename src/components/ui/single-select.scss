@@ -57,11 +57,11 @@
     }
   }
   .Select-placeholder, .Select-input, .Select--single > .Select-control .Select-value {
-    line-height: 50px;
+    line-height: 48px;
     text-align: left;
     //line-height: 40px !important;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
     font-weight: 400;
 
   }
@@ -99,17 +99,24 @@
     position: absolute;
     right: 0;
     top: 0;
-    padding-top: 15px;
-    padding-right: 15px;
+    width: 36px;
+    height: 100%;
+    display: table;
+    text-align: center;
+    background: white;
   }
   .Select-arrow {
     border: none;
+    display: table-cell;
+    vertical-align: middle;
   }
   .Select-arrow:after {
     font-family: 'simple-line-icons';
     content: '\e604';
     color: $placeholder-grey;
     @include transition(color, $anim-fast);
+    position: relative;
+    top: 2px;
   }
   .is-open .Select-arrow:after {
     font-family: 'simple-line-icons';

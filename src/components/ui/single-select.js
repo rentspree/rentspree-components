@@ -33,8 +33,10 @@ export default class SingleSelect extends React.Component {
       return item.value === this.props.selectedValue;
     })[0];
 
+    console.log(' propsClass inside =========> ', propsClass)
+
     return (
-      <div className={propsClass, c('selectWrap')}>
+      <div className={c('selectWrap')}>
         <Select
           name={this.props.name || "form-field-name"}
           value={selectedOption}

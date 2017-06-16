@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react'
+import React, { Component, PropTypes } from 'react'
 import getViewData from './../helpers/get-view-data.js'
 import rules from './../rules.js'
 import SingleSelect from '../../ui/single-select'
@@ -9,49 +9,48 @@ const c = classnames.bind(styles)
 
 class Select extends Component {
   constructor (props) {
-    super (props)
+    super(props)
     this.state = {
       hasValue: false,
       value: props.value
     }
 
-    this.props._register (this)
-    //this.props._update (this, props.selectedValue)
+    this.props._register(this)
+    // this.props._update (this, props.selectedValue)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.props._validate(this)
 
     let {value} = this.props
     if (value && value.length > 0) {
-      this.setState({ hasValue: true, value: value })
+      this.setState({hasValue: true, value: value})
     } else {
-      this.setState({ hasValue: false, value: '' })
+      this.setState({hasValue: false, value: ''})
     }
   }
 
-  componentDidUpdate() {
+  componentDidUpdate () {
     let {value} = this.props
 
-    if(value && this.state.value !== value) {
+    if (value && this.state.value !== value) {
       if (value.length > 0) {
         if (this.props.isPullValue) {
-          this.props._update (this, value)
+          this.props._update(this, value)
         }
-        this.setState({ hasValue: true, value: value })
+        this.setState({hasValue: true, value: value})
       } else {
-        this.setState({ hasValue: false, value: '' })
+        this.setState({hasValue: false, value: ''})
       }
     }
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     this.props._unregister(this)
   }
 
   render () {
-    let data = getViewData (this.props)
-    let propsClass = this.props.className || ''
+    let data = getViewData(this.props)
 
     if (data.props.isPullValue) {
       delete data.props.isPullValue
@@ -61,29 +60,30 @@ class Select extends Component {
       <div className={c('relative', this.props.containerClassName)}>
         <SingleSelect
           {...data.props}
-          noLabel //This is to set noLabel in SingleSelect because we now have label below
+          noLabel // This is to set noLabel in SingleSelect because we now have label below
           selectedValue={data.value}
-          className={propsClass, c({'formError': data.hint}, 'selectBox', {'hasLabel': !data.props.noLabel})}
+          className={c({'formError': data.hint}, 'selectBox', {'hasLabel': !data.props.noLabel})}
           onSelectItem={this.handleChange.bind(this)}/>
 
         {!data.props.noLabel &&
-          <label className={c('controlLabel', {'hasValue': data.value})}>
-            {data.props.placeholder}&nbsp;
-            {this.props.validations && this.props.validations.includes('required') && <span className={c('errorMessage')}>*</span>}
-            &nbsp;{data.hint}
-          </label>
+        <label className={c('controlLabel', {'hasValue': data.value})}>
+          {data.props.placeholder}&nbsp;
+          {this.props.validations && this.props.validations.includes('required') &&
+          <span className={c('errorMessage')}>*</span>}
+          &nbsp;{data.hint}
+        </label>
         }
       </div>
     )
   }
 
-  handleChange = (object) => {
-    this.props._update (this, object.value)
-    this.setState({ hasValue: true, value: object.value })
+  handleChange (object) {
+    this.props._update(this, object.value)
+    this.setState({hasValue: true, value: object.value})
 
-    //event.persist ()
+    // event.persist ()
     this.props.onSelectItem && this.props.onSelectItem(object)
-    //this.props.onChange && this.props.onChange (event)
+    // this.props.onChange && this.props.onChange (event)
   }
 
 }

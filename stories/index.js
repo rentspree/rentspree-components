@@ -180,7 +180,8 @@ storiesOf('Select', module)
       value=''
       name='select'
       placeholder='Select'
-      validations={['required']} />
+      validations={['required']}
+    />
   </Validation.components.Form>
 ))
   .add('Validation val + Label', () => (
