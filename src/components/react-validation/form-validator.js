@@ -148,7 +148,12 @@ Object.assign(Validation.rules, {
   },
   transUnionDob: {
     rule: value => {
-      return moment(value) < moment().subtract(18, 'years') || value === '';
+      if(moment.isMoment(value)) {
+        return value < moment().subtract(18, 'years') || value === '';
+      }
+      else {
+        return moment(value, 'MM/DD/YYYY') < moment().subtract(18, 'years') || value === '';
+      }
     },
     hint: value => {
       return <span className={styles.errorMessage}>You must be older than 18 years old</span>
@@ -175,7 +180,7 @@ Object.assign(Validation.rules, {
       return (value.trim().length >= 3 && value.trim().length <= 250) || value === ''
     },
     hint: value => {
-      return <span className={styles.errorMessage}>Length must be between 3 to 500 characters</span>
+      return <span className={styles.errorMessage}>Length must be between 3 to 250 characters</span>
     }
   },
   length3to50: {
@@ -183,7 +188,7 @@ Object.assign(Validation.rules, {
       return (value.trim().length >= 3 && value.trim().length <= 50) || value === ''
     },
     hint: value => {
-      return <span className={styles.errorMessage}>Length must be between 3 to 500 characters</span>
+      return <span className={styles.errorMessage}>Length must be between 3 to 50 characters</span>
     }
   },
   lengthMax50: {
@@ -308,6 +313,36 @@ Object.assign(Validation.rules, {
         return value === ''
       }
       return month > 0 && month <= 12 && year > 0;
+    },
+
+    hint: value => {
+      return <span className={styles.errorMessage}>Wrong format</span>
+    }
+  },
+  monthdateyear: {
+    rule: value => {
+      let date = 0
+      let month = 0
+      let year = 0
+
+      if (value) {
+        if (value.trim().length === 10 && value.indexOf('/') === 2 && value.lastIndexOf('/') === 5) {
+          if (/^[0-9]*$/.test(value.substring(0, 2))) {
+            month = numeral(value.substring(0, 2));
+          }
+          if (/^[0-9]*$/.test(value.substring(3, 5))) {
+            date = numeral(value.substring(3, 5));
+          }
+          if (/^[0-9]*$/.test(value.substring(6))) {
+            year = numeral(value.substring(6));
+          }
+        } else {
+          return false;
+        }
+      } else {
+        return value === ''
+      }
+      return date > 0 && date <= 31 && month > 0 && month <= 12 && year > 0
     },
 
     hint: value => {

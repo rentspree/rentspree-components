@@ -7,6 +7,7 @@ import Button from './components/Button.react.js'
 import PhoneInput from './components/PhoneInput.react.js'
 import Tags from './components/TagsInput.react.js'
 import DatePick from './components/DatePick.react.js'
+import DateInput from './components/DateInput.react.js'
 import MonthYearInput from './components/MonthYearInput.react.js'
 import rules from './rules.js'
 
@@ -21,6 +22,7 @@ module.exports = {
     PhoneInput,
     Tags,
     DatePick,
+    DateInput,
     MonthYearInput
   },
   rules
