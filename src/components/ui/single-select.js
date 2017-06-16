@@ -28,12 +28,13 @@ export default class SingleSelect extends React.Component {
 
   render() {
     let { ...otherProps } = this.props;
+    let propsClass = this.props.className || ''
     let selectedOption = this.props.options.filter((item) => {
       return item.value === this.props.selectedValue;
     })[0];
 
     return (
-      <div className={c('selectWrap')}>
+      <div className={propsClass, c('selectWrap')}>
         <Select
           name={this.props.name || "form-field-name"}
           value={selectedOption}
