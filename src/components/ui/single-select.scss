@@ -6,17 +6,21 @@
   position: relative;
 }
 
-.hasLabel {
-  :global {
-    .Select-value-label {
-      position: relative;
-      top: 6px;
-    }
-    .Select-placeholder {
-      display: none;
-    }
-  }
-}
+//.hasLabel {
+//  :global {
+//    .Select-value-label {
+//      position: relative;
+//      top: 6px;
+//    }
+//    .Select-placeholder {
+//      display: none;
+//    }
+//    .Select-input input {
+//      position: relative;
+//      top: 6px;
+//    }
+//  }
+//}
 
 .hasError {
   :global {
@@ -48,7 +52,6 @@
     line-height: 48px;
     height: 48px;
     text-align: left;
-    //line-height: 40px !important;
     padding-left: 10px;
     padding-right: 10px;
     font-weight: 400;
@@ -68,14 +71,15 @@
       font-size: 1em;
       border: none;
       background-color: transparent;
-      position: relative;
-      top: 5px;
-      //left: -6px;
+      padding: 0;
       color: $title-black;
 
       &:focus {
         outline: none;
       }
+    }
+    &:focus {
+      outline: none;
     }
   }
 

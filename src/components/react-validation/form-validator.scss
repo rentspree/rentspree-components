@@ -41,6 +41,10 @@
       .Select-placeholder {
         display: none;
       }
+      .Select-input input {
+        position: relative;
+        top: 6px;
+      }
     }
   }
 }
