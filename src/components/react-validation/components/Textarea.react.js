@@ -92,7 +92,7 @@ class Textarea extends Component {
 
 Textarea.propTypes = {
   validations: PropTypes.array.isRequired,
-  value: PropTypes.string.isRequired,
+  // value: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
