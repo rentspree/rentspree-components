@@ -54,7 +54,7 @@ class Textarea extends Component {
           className={c('validateInput', 'textInput', { 'hasHint' : data.hint })}
           checked={data.props.checked}
           value={data.value}
-          maxLength={150}
+          maxLength={this.props.maxLength || 150}
           onChange={this.handleChange}
           onBlur={this.handleBlur} />
   
