@@ -8,7 +8,7 @@ import styles from '../form-validator.scss'
 
 const c = classnames.bind(styles)
 
-const RenderInput = (props) => {
+const RenderInput = ({addTag, ...props}) => {
   let {onChange, value, ...other} = props
   const handleChange = (e) => {
     onChange(e)
@@ -104,7 +104,7 @@ class Tags extends Component {
 
 Tags.propTypes = {
   validations: PropTypes.array.isRequired,
-  value: PropTypes.string.isRequired,
+  // value: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
