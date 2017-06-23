@@ -80,7 +80,7 @@
   @include border-radius(5px);
 }
 
-.buttonError:hover {
+.buttonError:active {
   background-color: $rentspree-negative-red !important;
   animation: shake $anim cubic-bezier(.36, .07, .19, .97) both;
   transform: translate3d(0, 0, 0);

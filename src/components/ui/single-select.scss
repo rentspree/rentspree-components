@@ -49,6 +49,7 @@
   }
   .Select-placeholder, .Select-input, .Select--single > .Select-control .Select-value {
     position: absolute;
+    top: 0;
     line-height: 48px;
     height: 48px;
     text-align: left;

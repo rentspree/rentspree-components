@@ -137,6 +137,19 @@ textarea::-webkit-input-placeholder {
   opacity: 0 !important;
 }
 
+textarea::-moz-placeholder {
+  color: transparent !important;
+}
+
+textarea:-moz-placeholder {
+  color: transparent !important;
+}
+
+textarea:-ms-input-placeholder {
+  color: transparent !important;
+}
+
+
 textarea:focus {
   ~ .controlLabel {
     font-size: 11px;
