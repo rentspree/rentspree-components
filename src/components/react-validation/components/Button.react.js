@@ -29,6 +29,7 @@ class Button extends Component {
       errorNames.forEach((item, index) => {
         this.props.validate(item)
       })
+      this.props.errorCallback  && this.props.errorCallback(errorNames[0]);
     }
     this.props.onClick && this.props.onClick();
   }

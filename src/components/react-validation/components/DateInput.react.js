@@ -53,16 +53,18 @@ class DateInput extends Component {
   }
 
   formatDate (dateString) {
-    var cleanString = dateString.replace (/\D/g, ''), // Removes all non-numeric characters
-      output = cleanString.substr (0, 8), // Limit to 8 digits
-      size = dateString.length;
+    if(dateString && dateString !== 'Invalid date') {
+      var cleanString = dateString.replace (/\D/g, ''), // Removes all non-numeric characters
+        output = cleanString.substr (0, 8), // Limit to 8 digits
+        size = dateString.length;
 
-    if (size > 2)
-      output = this.insertString (output, '/', 2);
-    if (size > 5)
-      output = this.insertString (output, '/', 5);
+      if (size > 2)
+        output = this.insertString (output, '/', 2);
+      if (size > 5)
+        output = this.insertString (output, '/', 5);
 
-    return output;
+      return output;
+    }
   }
 
   render () {
