@@ -16,7 +16,8 @@ storiesOf('Input', module)
         value=''
         name='text'
         placeholder='Text'
-        validations={['required']}/>
+        validations={['required']}
+      />
     </Validation.components.Form>
   ))
   .add('Password', () => (
@@ -26,7 +27,8 @@ storiesOf('Input', module)
         value=''
         name='password'
         placeholder='Password'
-        validations={['required', 'password', 'length8']}/>
+        validations={['required', 'password', 'length8']}
+      />
     </Validation.components.Form>
   ))
   .add('Phone', () => (
@@ -36,7 +38,8 @@ storiesOf('Input', module)
         value=''
         name='tel'
         placeholder='Phone Number'
-        validations={['required', 'phone']}/>
+        validations={['required', 'phone']}
+      />
     </Validation.components.Form>
   ))
   .add('Number', () => (
@@ -46,7 +49,8 @@ storiesOf('Input', module)
         value=''
         name='number'
         placeholder='Number'
-        validations={['required']}/>
+        validations={['required']}
+      />
     </Validation.components.Form>
   ))
 
@@ -69,7 +73,8 @@ storiesOf('Textarea', module)
         name='tags'
         value={[]}
         placeholder='Tags'
-        validations={['required', 'duplicate']} />
+        validations={['required', 'duplicate']}
+      />
     </Validation.components.Form>
   ))
 
@@ -77,19 +82,19 @@ storiesOf('Select', module)
   .add('Basic', () => (
     <SingleSelect
       options={[
-          {
-            label: 'one',
-            value: 'one'
-          }, {
-            label: 'two',
-            value: 'two'
-          }, {
-            label: 'three',
-            value: 'three'
-          }
-        ]}
+        {
+          label: 'one',
+          value: 'one'
+        }, {
+          label: 'two',
+          value: 'two'
+        }, {
+          label: 'three',
+          value: 'three'
+        }
+      ]}
       selectedValue={''}
-      onSelectItem={ action('selected') }
+      onSelectItem={action('selected')}
       searchable={false}
       noLabel
       name='select'
@@ -97,27 +102,27 @@ storiesOf('Select', module)
     />
   ))
   .add('Basic val', () => (
-  <SingleSelect
-    options={[
-          {
-            label: 'one',
-            value: 'one'
-          }, {
-            label: 'two',
-            value: 'two'
-          }, {
-            label: 'three',
-            value: 'three'
-          }
-        ]}
-    selectedValue={'one'}
-    onSelectItem={ action('selected') }
-    searchable={false}
-    noLabel
-    name='select'
-    placeholder='Select'
-  />
-))
+    <SingleSelect
+      options={[
+        {
+          label: 'one',
+          value: 'one'
+        }, {
+          label: 'two',
+          value: 'two'
+        }, {
+          label: 'three',
+          value: 'three'
+        }
+      ]}
+      selectedValue={'one'}
+      onSelectItem={action('selected')}
+      searchable={false}
+      noLabel
+      name='select'
+      placeholder='Select'
+    />
+  ))
   .add('Basic + Label', () => (
     <SingleSelect
       options={[
@@ -133,7 +138,7 @@ storiesOf('Select', module)
         }
       ]}
       selectedValue={''}
-      onSelectItem={ action('selected') }
+      onSelectItem={action('selected')}
       searchable={false}
       name='select'
       placeholder='Select'
@@ -154,16 +159,16 @@ storiesOf('Select', module)
         }
       ]}
       selectedValue={'one'}
-      onSelectItem={ action('selected') }
+      onSelectItem={action('selected')}
       searchable={false}
       name='select'
       placeholder='Select'
     />
   ))
   .add('Validation + Label', () => (
-  <Validation.components.Form>
-    <Validation.components.Select
-      options={[
+    <Validation.components.Form>
+      <Validation.components.Select
+        options={[
           {
             label: 'one',
             value: 'one'
@@ -175,15 +180,15 @@ storiesOf('Select', module)
             value: 'three'
           }
         ]}
-      onSelectItem={ action('selected') }
-      searchable={false}
-      value=''
-      name='select'
-      placeholder='Select'
-      validations={['required']}
-    />
-  </Validation.components.Form>
-))
+        onSelectItem={action('selected')}
+        searchable={false}
+        value=''
+        name='select'
+        placeholder='Select'
+        validations={['required']}
+      />
+    </Validation.components.Form>
+  ))
   .add('Validation val + Label', () => (
     <Validation.components.Form>
       <Validation.components.Select
@@ -199,12 +204,13 @@ storiesOf('Select', module)
             value: 'three'
           }
         ]}
-        onSelectItem={ action('selected') }
+        onSelectItem={action('selected')}
         searchable={false}
         value='one'
         name='select'
         placeholder='Select'
-        validations={['required']} />
+        validations={['required']}
+      />
     </Validation.components.Form>
   ))
   .add('Validation + Search', () => (
@@ -222,12 +228,13 @@ storiesOf('Select', module)
             value: 'three'
           }
         ]}
-        onSelectItem={ action('selected') }
+        onSelectItem={action('selected')}
         searchable
         value=''
         name='select'
         placeholder='Select'
-        validations={['required']} />
+        validations={['required']}
+      />
     </Validation.components.Form>
   ))
   .add('Validation val + Search', () => (
@@ -245,12 +252,13 @@ storiesOf('Select', module)
             value: 'three'
           }
         ]}
-        onSelectItem={ action('selected') }
+        onSelectItem={action('selected')}
         searchable
         value='one'
         name='select'
         placeholder='Select'
-        validations={['required']} />
+        validations={['required']}
+      />
     </Validation.components.Form>
   ))
   .add('Validation + Search + noLabel', () => (
@@ -268,11 +276,12 @@ storiesOf('Select', module)
             value: 'three'
           }
         ]}
-        onSelectItem={ action('selected') }
+        onSelectItem={action('selected')}
         searchable noLabel
         value=''
         name='select' placeholder='Select'
-        validations={['required']} />
+        validations={['required']}
+      />
     </Validation.components.Form>
   ))
   .add('Validation val + Search + noLabel', () => (
@@ -290,11 +299,12 @@ storiesOf('Select', module)
             value: 'three'
           }
         ]}
-        onSelectItem={ action('selected') }
+        onSelectItem={action('selected')}
         searchable noLabel
         value='one'
         name='select' placeholder='Select'
-        validations={['required']} />
+        validations={['required']}
+      />
     </Validation.components.Form>
   ))
 
@@ -306,7 +316,8 @@ storiesOf('Date', module)
         value=''
         name='date'
         placeholder='MM/DD/YYYY'
-        validations={['required', 'monthdateyear']}/>
+        validations={['required', 'monthdateyear']}
+      />
     </Validation.components.Form>
   ))
   .add('MonthYearInput', () => (
@@ -316,7 +327,8 @@ storiesOf('Date', module)
         value=''
         name='monthyear'
         placeholder='MM/YYYY'
-        validations={['required', 'monthyear']}/>
+        validations={['required', 'monthyear']}
+      />
     </Validation.components.Form>
   ))
   .add('DateInputGroup', () => (
@@ -326,7 +338,8 @@ storiesOf('Date', module)
       name='date'
       label='Date input group'
       error='Error msg'
-      validations={['required']} />
+      validations={['required']}
+    />
   ))
   .add('Picker', () => (
     <Validation.components.Form>
@@ -336,7 +349,8 @@ storiesOf('Date', module)
         name='date'
         placeholder='Date'
         validations={['required']}
-        dropdownMode='select' />
+        dropdownMode='select'
+      />
     </Validation.components.Form>
   ))
   .add('Picker with Dropdown', () => (
@@ -349,7 +363,8 @@ storiesOf('Date', module)
         validations={['required']}
         dropdownMode='select'
         showMonthDropdown
-        showYearDropdown />
+        showYearDropdown
+      />
     </Validation.components.Form>
   ))
 
@@ -364,5 +379,5 @@ storiesOf('Button', module)
 
 storiesOf('Search', module)
   .add('Address', () => (
-    <SearchingBox onSelected={()=> console.log('Search')} placeholder='Address' />
+    <SearchingBox onSelected={() => console.log('Search')} placeholder='Address' />
   ))
