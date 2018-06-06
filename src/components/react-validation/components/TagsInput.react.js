@@ -1,20 +1,52 @@
 import React, {Component, PropTypes} from 'react'
+import UAParser from "ua-parser-js"
 import getViewData from './../helpers/get-view-data.js'
 import rules from './../rules.js'
 import TagsInput from 'react-tagsinput'
 import _ from 'lodash'
 import classnames from 'classnames/bind'
 import styles from '../form-validator.scss'
+const parser = new UAParser()
+const {os} = parser.getResult()
 
+const isAndroid = os.name === "Android"
 const c = classnames.bind(styles)
 
+const AsciiToKeyCode = (value = "", oldCode) => {
+  const code = value.charCodeAt(value.length - 1)
+  switch (code) {
+    /// value = ","
+    case 44:
+      return 188
+    /// value = " "
+    case 32:
+      return 32
+    default:
+      return oldCode;
+  }
+}
 const RenderInput = ({addTag, ...props}) => {
-  let {onChange, value, ...other} = props
+  let {onChange, onKeyDown, value, ...other} = props
   const handleChange = (e) => {
     onChange(e)
   }
+  const handleKeyDown = (e) => {
+    if (isAndroid && e.keyCode === 229) {
+      try {
+        const event = _.cloneDeep(e)
+        setTimeout(()=> {
+          event.keyCode = AsciiToKeyCode(event.target.value, event.oldCode)
+          onKeyDown(event)
+        }, 1)
+      } catch (error) {
+        onKeyDown(e)
+      }  
+    } else {
+      onKeyDown(e)
+    }
+  }
   return (
-    <input type='text' onChange={handleChange} value={value} {...other} id="inputEmail" placeholder="" />
+    <input type='text' onChange={handleChange} onKeyDown={handleKeyDown} value={value} {...other} id="inputEmail" placeholder="" />
   )
 }
 
@@ -86,6 +118,10 @@ class Tags extends Component {
   }
 
   handleChange = (value) => {
+    if(isAndroid) {
+      value = value.map((v)=> v.replace(/,$/g, "").trim())
+    }
+
     this.props._update(this, value)
     if (value.length > 0) {
       this.setState({ hasValue: true, value: value })
