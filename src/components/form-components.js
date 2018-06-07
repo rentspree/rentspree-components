@@ -1,5 +1,5 @@
 import React from 'react'
-import Validation from './react-validation/form-validator'
+import Validation from './react-validation/validation'
 
 export const Form = ({ children }) => (
   <Validation.components.Form>
