@@ -3,7 +3,7 @@ import validator from 'validator'
 import numeral from 'numeral'
 import moment from 'moment'
 import _ from 'lodash'
-import { invalidChars } from './form-validator'
+import { invalidChars } from './validator-helper'
 
 const styles = require('./form-validator.scss')
 
