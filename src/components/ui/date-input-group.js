@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import {Row, Col, FormGroup} from 'react-bootstrap'
-import Validation from '../react-validation/form-validator'
+import Validation from '../react-validation/validation'
 import SingleSelect from './single-select'
 import moment from 'moment'
 import classnames from 'classnames/bind'

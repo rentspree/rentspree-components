@@ -1,5 +1,6 @@
 import React from 'react'
 import moment from 'moment'
+import _ from 'lodash'
 import { storiesOf, action } from '@kadira/storybook'
 import {
   Validation,
@@ -53,6 +54,22 @@ storiesOf('Input', module)
       />
     </Validation.components.Form>
   ))
+
+const validationRules = _.keys(Validation.rules)
+const validationStories = storiesOf('Validation', module)
+
+validationRules.forEach((ruleName) => {
+  validationStories.add(_.capitalize(ruleName), () =>
+    <Validation.components.Form>
+      <Validation.components.Input
+        type='text'
+        value=''
+        name={ruleName}
+        placeholder={`Rule: ${_.capitalize(ruleName)}`}
+        validations={[ruleName]}
+      />
+    </Validation.components.Form>)
+})
 
 storiesOf('Textarea', module)
   .add('Text', () => (
