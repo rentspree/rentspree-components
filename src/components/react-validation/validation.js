@@ -10,6 +10,7 @@ import DatePick from './components/DatePick.react.js'
 import DateInput from './components/DateInput.react.js'
 import MonthYearInput from './components/MonthYearInput.react.js'
 import rules from './rules.js'
+import {addRule, addRuleWithRegExp} from './validator-helper'
 
 module.exports = {
   components: {
@@ -25,5 +26,7 @@ module.exports = {
     DateInput,
     MonthYearInput
   },
-  rules
+  rules,
+  addRule: addRule.bind(rules),
+  addRuleWithRegExp: addRuleWithRegExp.bind(rules)
 }

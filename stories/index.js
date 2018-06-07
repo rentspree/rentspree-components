@@ -55,6 +55,8 @@ storiesOf('Input', module)
     </Validation.components.Form>
   ))
 
+// Validation
+
 const validationRules = _.keys(Validation.rules)
 const validationStories = storiesOf('Validation', module)
 
@@ -70,6 +72,43 @@ validationRules.forEach((ruleName) => {
       />
     </Validation.components.Form>)
 })
+
+Validation.addRule('noZ', ({ invalidChars, styles }) => ({
+  rule: value => {
+    return /^[a-yA-Y\-\s']+$/.test(value.trim()) || value === ''
+  },
+  hint: value => {
+    let invalids = invalidChars(value, /^[a-yA-Y\-\s']+$/)
+    // return <span className={styles.errorMessage}>Valid characters are <strong>A-Z a-z space - '</strong></span>
+    return <span className={styles.errorMessage}>Character <strong>{invalids[0]}</strong> is invalid</span>
+  }
+}))
+
+validationStories.add('New Rule', () => (
+  <Validation.components.Form>
+    <Validation.components.Input
+      type='text'
+      value=''
+      name='newRule'
+      placeholder='Rule: noZ'
+      validations={['noZ']}
+    />
+  </Validation.components.Form>
+))
+
+Validation.addRuleWithRegExp('someRegexp', /z{5}/)
+
+validationStories.add('RegExp Rule', () => (
+  <Validation.components.Form>
+    <Validation.components.Input
+      type='text'
+      value=''
+      name='someRegexp'
+      placeholder='Rule: someRegexp'
+      validations={['someRegexp']}
+    />
+  </Validation.components.Form>
+))
 
 storiesOf('Textarea', module)
   .add('Text', () => (
