@@ -253,6 +253,14 @@ export default {
       return <span className={styles.errorMessage}>Must contains at least 1 uppercase character</span>
     }
   },
+  hasNumberAndLetter: {
+    rule: value => {
+      return /(?=.*[0-9])(?=.*[a-zA-Z])/.test(value.trim()) || value === ''
+    },
+    hint: value => {
+      return <span className={styles.errorMessage}>Must contains number and letter</span>
+    }
+  },
   phone: {
     rule: value => {
       return value.length === 10 || value === ''
