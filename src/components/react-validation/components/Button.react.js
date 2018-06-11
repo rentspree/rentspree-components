@@ -6,6 +6,12 @@ import styles from '../form-validator.scss'
 const c = classnames.bind(styles)
 
 class Button extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      validationError: false
+    }
+  }
   render () {
     let data = getViewData(this.props)
     let {errors} = this.props
@@ -15,7 +21,7 @@ class Button extends Component {
       <button
         {...data.props}
         onClick={this.handleClick}
-        className={c('button', {'buttonError': hasErrors})}>
+        className={c('button', {'shake': this.state.validationError})}>
         {this.props.children}
       </button>
     )
@@ -30,6 +36,11 @@ class Button extends Component {
         this.props.validate(item)
       })
       this.props.errorCallback  && this.props.errorCallback(errorNames[0]);
+      // Shake Shake
+      this.setState({validationError: true})
+      setTimeout(() => {
+        this.setState({validationError: false})
+      }, 500)
     }
     this.props.onClick && this.props.onClick();
   }
