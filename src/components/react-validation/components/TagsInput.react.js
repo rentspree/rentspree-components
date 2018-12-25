@@ -5,6 +5,7 @@ import rules from './../rules.js'
 import TagsInput from 'react-tagsinput'
 import _ from 'lodash'
 import classnames from 'classnames/bind'
+import NumberFormat from 'react-number-format'
 import styles from '../form-validator.scss'
 const parser = new UAParser()
 const {os} = parser.getResult()
@@ -50,6 +51,17 @@ const RenderInput = ({addTag, ...props}) => {
   )
 }
 
+const RenderFormattedInput = ({addTag, ...props}) => {
+  return (
+    <NumberFormat
+      customInput={RenderInput}
+      format="(###) ###-####"
+      type="tel"
+      id="inputEmail"
+      {...props}
+  />
+  )
+}
 
 class Tags extends Component {
   constructor (props) {
@@ -102,7 +114,7 @@ class Tags extends Component {
           addKeys={[13, 32, 188]}
           addOnBlur={true}
           onChange={this.handleChange.bind(this)}
-          renderInput={RenderInput}
+          renderInput={this.props.renderFormattedInput ? RenderFormattedInput : RenderInput}
         />
 
         <div className={c('topLabelBg', {'hasValue': data.value && data.value.length > 0 })}/>
@@ -116,7 +128,6 @@ class Tags extends Component {
       </div>
     )
   }
-
   handleChange = (value) => {
     if(isAndroid) {
       value = value.map((v)=> v.replace(/,$/g, "").trim())

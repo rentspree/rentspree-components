@@ -7,6 +7,17 @@ import { invalidChars } from './validator-helper'
 
 const styles = require('./form-validator.scss')
 
+const requiredRule = (value, component, form) => {
+  if (typeof value === 'string') {
+    return value.trim() !== ''
+  } else if (typeof value === 'number') {
+    return true
+  } else if (Array.isArray(value)) {
+    return value.length !== 0
+  } else {
+    return !!value
+  }
+}
 export default {
   none: {
     rule: (value, component, form) => {
@@ -17,21 +28,23 @@ export default {
   // Key name maps the rule
   required: {
     // Function to validate value
-    rule: (value, component, form) => {
-      if (typeof value === 'string') {
-        return value.trim() !== ''
-      } else if (typeof value === 'number') {
-        return true
-      } else if (Array.isArray(value)) {
-        return value.length !== 0
-      } else {
-        return !!value
-      }
-    },
+    rule: requiredRule,
     // Function to return hint
     // You may use current value to inject it in some way to the hint
     hint: value => {
       return <span className={styles.errorMessage}>Required</span>
+    }
+  },
+  emailRequired: {
+    rule: requiredRule,
+    hint: value => {
+      return <span className={styles.errorMessage}>Email Required</span>
+    }
+  },
+  phoneRequired: {
+    rule: requiredRule,
+    hint: value => {
+      return <span className={styles.errorMessage}>Mobile number required</span>
     }
   },
   email: {
@@ -61,6 +74,19 @@ export default {
     // }
 
   },
+  phoneArray: {
+    rule: value => {
+      if (Array.isArray(value) && value.length > 0) {
+        return _.findIndex(value, function (v) {
+          const unformattedPhone = v.replace(/\D+/g, '')
+          return unformattedPhone.trim().length !== 10 || v === ''
+        }) === -1
+      }
+    },
+    hint: value => {
+      return <span className={styles.errorMessage}>Invalid number format</span>
+    }
+  },
   emailArray: {
     // Example usage with external 'validator'
     rule: value => {
@@ -69,7 +95,7 @@ export default {
       }
     },
     hint: value => {
-      return <span className={styles.errorMessage}>Invalid Email format</span>
+      return <span className={styles.errorMessage}>Invalid email format</span>
     }
 
     // rule: (value, component, form) => {
@@ -361,6 +387,22 @@ export default {
     },
     hint: value => {
       return <span className={styles.errorMessage}>Duplicate items are not allowed</span>
+    }
+  },
+  duplicateEmail: {
+    rule: value => {
+      return (new Set(value)).size === value.length
+    },
+    hint: value => {
+      return <span className={styles.errorMessage}>Duplicate emails are not allowed</span>
+    }
+  },
+  duplicatePhone: {
+    rule: value => {
+      return (new Set(value)).size === value.length
+    },
+    hint: value => {
+      return <span className={styles.errorMessage}>Duplicate numbers are not allowed</span>
     }
   },
   zipcode: {

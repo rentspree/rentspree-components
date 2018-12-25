@@ -129,7 +129,15 @@ storiesOf('Textarea', module)
         name='tags'
         value={[]}
         placeholder='Tags'
-        validations={['required', 'duplicate']}
+        validations={['emailRequired', 'required', 'duplicateEmail', 'emailArray']}
+      />
+      <Validation.components.Tags
+        type='text'
+        name='phone-tags'
+        value={[]}
+        placeholder='Tags'
+        validations={['required', 'phoneArray', 'duplicatePhone']}
+        renderFormattedInput
       />
     </Validation.components.Form>
   ))
