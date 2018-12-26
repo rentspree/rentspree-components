@@ -77,10 +77,7 @@ export default {
   phoneArray: {
     rule: value => {
       if (Array.isArray(value) && value.length > 0) {
-        return _.findIndex(value, function (v) {
-          const unformattedPhone = v.replace(/\D+/g, '')
-          return unformattedPhone.trim().length !== 10 || v === ''
-        }) === -1
+        return _.findIndex(value, function (v) { return (v.replace(/\D+/g, '')).length !== 10 || v === '' }) === -1
       }
     },
     hint: value => {
