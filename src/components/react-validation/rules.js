@@ -340,7 +340,7 @@ export default {
       } else {
         return value === ''
       }
-      return month > 0 && month <= 12 && year > 0
+      return month.value() > 0 && month.value() <= 12 && year.value() > 0
     },
 
     hint: value => {
@@ -370,7 +370,7 @@ export default {
       } else {
         return value === ''
       }
-      return date > 0 && date <= 31 && month > 0 && month <= 12 && year > 0
+      return date.value() > 0 && date.value() <= 31 && month.value() > 0 && month.value() <= 12 && year.value() > 0
     },
 
     hint: value => {
