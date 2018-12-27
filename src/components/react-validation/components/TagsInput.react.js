@@ -85,9 +85,9 @@ class Tags extends Component {
     } else {
       this.setState({ hasValue: false, value: [] })
     }
-    // setTimeout(()=>{
-    //   this.focus()
-    // }, 300)
+    setTimeout(()=>{
+      this.focus()
+    }, 300)
 
   }
 
