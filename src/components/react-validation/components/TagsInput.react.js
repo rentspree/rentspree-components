@@ -48,7 +48,7 @@ const RenderInput = ({addTag, ...props}) => {
     }
   }
   return (
-    <input type='text'  onChange={handleChange} onKeyDown={handleKeyDown} value={value} {...other} id={id} placeholder="" />
+    <input type='text'  onChange={handleChange} onKeyDown={handleKeyDown}  value={value} {...other} id={id} placeholder="" autoFocus/>
   )
 }
 
@@ -85,9 +85,9 @@ class Tags extends Component {
     } else {
       this.setState({ hasValue: false, value: [] })
     }
-    setTimeout(()=>{
-      this.focus()
-    }, 300)
+    // setTimeout(()=>{
+    //   this.focus()
+    // }, 300)
 
   }
 
