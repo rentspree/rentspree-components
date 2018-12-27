@@ -28,7 +28,7 @@
     "react-bootstrap": "0.31.0",
     "react-datepicker": "0.30.0",
     "react-dom": "15.4.1",
-    "react-number-format": "4.0.5",
+    "react-number-format": "git+https://github.com/rentspree/react-number-format.git",
     "react-phone-number-input": "0.4.1",
     "react-select": "1.0.0-rc.2",
     "react-tagsinput": "3.16.1",

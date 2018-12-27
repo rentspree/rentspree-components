@@ -79,6 +79,9 @@ textarea.textInput {
   white-space: nowrap;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, color 0.3s ease-in-out, font-size 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
+.placeholder-tags {
+  white-space: unset;
+}
 
 .controlLabel.hasValue {
   font-size: 11px;
@@ -175,7 +178,6 @@ textarea:focus {
     position: relative;
     z-index: 2;
     ~ .controlLabel {
-
       .label-tag {
         cursor: text;
 

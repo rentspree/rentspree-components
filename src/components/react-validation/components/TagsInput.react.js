@@ -27,7 +27,8 @@ const AsciiToKeyCode = (value = "", oldCode) => {
   }
 }
 const RenderInput = ({addTag, ...props}) => {
-  let {onChange, onKeyDown, value, ...other} = props
+  let {onChange, onKeyDown, value, id, ...other} = props
+
   const handleChange = (e) => {
     onChange(e)
   }
@@ -47,7 +48,7 @@ const RenderInput = ({addTag, ...props}) => {
     }
   }
   return (
-    <input type='text' onChange={handleChange} onKeyDown={handleKeyDown} value={value} {...other} id="inputEmail" placeholder="" />
+    <input type='text'  onChange={handleChange} onKeyDown={handleKeyDown} value={value} {...other} id={id} placeholder="" />
   )
 }
 
@@ -85,7 +86,7 @@ class Tags extends Component {
       this.setState({ hasValue: false, value: [] })
     }
     setTimeout(()=>{
-      document.getElementById("inputEmail").focus()
+      this.focus()
     }, 300)
 
   }
@@ -101,12 +102,21 @@ class Tags extends Component {
       }
     }
   }
-
+  focus() {
+    try {
+      document.getElementById(this.props.id).focus()
+    } catch (e) {
+      console.log("focus error=>", e)
+    }
+  }
+  handleClick() {
+    this.focus()
+  }
   render () {
     let data = getViewData(this.props)
 
     return (
-      <div className={c('relative', this.props.containerClassName)}>
+      <div className={c('relative', this.props.containerClassName)} onClick={this.handleClick.bind(this)}>
         <TagsInput
           {...data.props}
           value={data.value || []}
@@ -114,11 +124,12 @@ class Tags extends Component {
           addKeys={[13, 32, 188]}
           addOnBlur={true}
           onChange={this.handleChange.bind(this)}
+          inputProps={{id: this.props.id}}
           renderInput={this.props.renderFormattedInput ? RenderFormattedInput : RenderInput}
         />
         <label className={c('bottomErrorMessage')}>{data.hint}</label>
         <div className={c('topLabelBg', {'hasValue': data.value && data.value.length > 0 })}/>
-        <label className={c('controlLabel', 'label-tag', {'hasValue': data.value && data.value.length > 0 })} style={{left: 10}} id="tagInput">
+        <label className={c('controlLabel', 'placeholder-tags', 'label-tag', {'hasValue': data.value && data.value.length > 0 })} style={{left: 10}} id="tagInput">
           {data.props.placeholder}&nbsp;
           {(this.props.validations && this.props.validations.includes('required')) &&
           <span className={c('errorMessage')}>*</span>

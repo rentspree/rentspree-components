@@ -128,6 +128,7 @@ storiesOf('Textarea', module)
         type='text'
         name='tags'
         value={[]}
+        id='inputEmail'
         placeholder='Tags'
         validations={['emailRequired', 'required', 'duplicateEmail', 'emailArray']}
       />
@@ -135,7 +136,8 @@ storiesOf('Textarea', module)
         type='text'
         name='phone-tags'
         value={[]}
-        placeholder='Tags'
+        id='inputPhoneNumbers'
+        placeholder='Enter renters’ mobile numbers separated by comma'
         validations={['required', 'phoneArray', 'duplicatePhone']}
         renderFormattedInput
       />
