@@ -57,7 +57,7 @@ const RenderFormattedInput = ({addTag, ...props}) => {
     <NumberFormat
       customInput={RenderInput}
       format="(###) ###-####"
-      type="tel"
+      type="text"
       id="inputEmail"
       {...props}
   />
