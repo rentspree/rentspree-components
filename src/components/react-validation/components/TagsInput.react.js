@@ -78,7 +78,6 @@ class Tags extends Component {
 
   componentDidMount() {
     this.props._validate(this)
-
     let {value} = this.props
     if (value && value.length > 0) {
       this.setState({ hasValue: true, value: value })
@@ -91,9 +90,12 @@ class Tags extends Component {
 
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) { 
+    if(prevProps.id !== this.props.id) {
+      this.props._validate(this)
+    }
     let {value} = this.props
-
+    
     if(value &&  !_.isEqual(this.state.value , value)) {
       if (value.length > 0) {
         this.setState({ hasValue: true, value: value })
@@ -102,6 +104,7 @@ class Tags extends Component {
       }
     }
   }
+
   focus() {
     try {
       document.getElementById(this.props.id).focus()
@@ -114,7 +117,6 @@ class Tags extends Component {
   }
   render () {
     let data = getViewData(this.props)
-
     return (
       <div className={c('relative', this.props.containerClassName)} onClick={this.handleClick.bind(this)}>
         <TagsInput
@@ -124,6 +126,7 @@ class Tags extends Component {
           addKeys={[13, 32, 188]}
           addOnBlur={true}
           onChange={this.handleChange.bind(this)}
+          onBlur={this.handleBlur.bind(this)}
           inputProps={{id: this.props.id}}
           renderInput={this.props.renderFormattedInput ? RenderFormattedInput : RenderInput}
         />

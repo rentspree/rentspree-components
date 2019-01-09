@@ -8,6 +8,7 @@ import {
   SingleSelect,
   DateInputGroup
 } from '../src/index'
+import TagsForm from './tags-form'
 
 storiesOf('Input', module)
   .add('Text', () => (
@@ -142,6 +143,9 @@ storiesOf('Textarea', module)
         renderFormattedInput
       />
     </Validation.components.Form>
+  ))
+  .add('Tags Form', () => (
+    <TagsForm />
   ))
 
 storiesOf('Select', module)
