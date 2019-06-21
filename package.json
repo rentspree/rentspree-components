@@ -58,7 +58,7 @@
     "babel-preset-react": "6.24.1",
     "babel-runtime": "6.11.6",
     "css-loader": "0.26.1",
-    "eslint": "3.19.0",
+    "eslint": "5.16.0",
     "eslint-config-airbnb-base": "11.2.0",
     "eslint-config-standard": "10.2.1",
     "eslint-config-standard-react": "5.0.0",
