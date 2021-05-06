@@ -32,7 +32,7 @@
     "react-phone-number-input": "0.4.1",
     "react-select": "1.0.0-rc.2",
     "react-tagsinput": "3.16.1",
-    "ua-parser-js": "0.7.17",
+    "ua-parser-js": "0.7.24",
     "validator": "7.0.0"
   },
   "devDependencies": {
