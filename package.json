@@ -33,7 +33,7 @@
     "react-select": "1.0.0-rc.2",
     "react-tagsinput": "3.16.1",
     "ua-parser-js": "0.7.17",
-    "validator": "7.0.0"
+    "validator": "13.7.0"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",
